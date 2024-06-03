@@ -1,0 +1,17 @@
+.check-list__container {
+	position: relative;
+	padding-right: 425px;
+}
+
+.check-list__container:after {
+	position: absolute;
+	content: "";
+	width: 490px;
+	height: 461px;
+	background-image: url(../../images/check-list.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	right: -15px;
+	bottom: -35px;
+}

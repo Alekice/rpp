@@ -1,3 +1,7 @@
 @import "./components/accordion.css";
+@import "./components/table.css";
+@import "./components/raiting.css";
 
+@import "./blocks/check-list.css";
+@import "./blocks/best-pa.css";
 @import "./blocks/footer.css";

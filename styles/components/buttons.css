@@ -13,6 +13,8 @@
 	justify-content: center;
 	-webkit-align-items: center;
 	align-items: center;
+	transition: .3s;
+	position: relative;
 }
 
 .button_dark {
@@ -21,6 +23,56 @@
 
 .button_light {
 	background-color: var(--red-color);
+}
+
+.button::before,
+.button::after {
+	position: absolute;
+	content: "";
+	width: 0%;
+	height: 0%;
+	background: transparent;
+	z-index: 2;
+	opacity: 0;
+	transition: width 0.2s linear, height 0.15s 0.2s ease-out, opacity 0s 0.35s;
+}
+
+.button::before {
+	bottom: -5px;
+	left: -6px;
+}
+
+.button::after {
+	top: -5px;
+	right: -5px;
+}
+
+.button_dark::before {
+	border-top: 1px solid #000000;
+	border-left: 1px solid #000000;
+}
+
+.button_dark::after {
+	border-bottom: 1px solid #000000;
+	border-right: 1px solid #000000;
+}
+
+.button_light::before {
+	border-top: 1px solid var(--red-color);
+	border-left: 1px solid var(--red-color);
+}
+
+.button_light::after {
+	border-bottom: 1px solid var(--red-color);
+	border-right: 1px solid var(--red-color);
+}
+
+.button:hover::before,
+.button:hover::after {
+	width: calc(100% + 10px);
+	height: calc(100% + 10px);
+	opacity: 1;
+	transition: width 0.2s 0.15s ease-out, height 0.15s ease-in, opacity 0s;
 }
 
 .text + .button {

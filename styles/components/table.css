@@ -1,0 +1,30 @@
+.table__head {
+	background-color: #d4d4d4;
+	border-top: 5px solid var(--text-color-dark);
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.table__row {
+	display: grid;
+	grid-template-columns: 100px 550px 280px 230px;
+	border-left: 1px solid var(--text-color-dark);
+	border-right: 1px solid var(--text-color-dark);
+	border-bottom: 1px solid var(--text-color-dark);
+}
+
+.table__row:nth-of-type(2n) {
+	background-color: var(--text-color-light);
+}
+
+.table__cell {
+	padding: 10px 12px;
+}
+
+.table__cell + .table__cell {
+	border-left: 1px solid var(--text-color-dark);
+}
+
+.table__cell_centered {
+	text-align: center;
+}

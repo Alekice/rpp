@@ -1,0 +1,37 @@
+.raiting {
+	display: flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.star {
+	width: 24px;
+	height: 24px;
+	background-image: url(../../images/raiting/star.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.star.img {
+	background-image: url(../../images/raiting/star.png);
+}
+
+.star.webp {
+	background-image: url(../../images/raiting/star.webp);
+}
+
+.star_empty {
+	background-image: url(../../images/raiting/star-empty.png);
+}
+
+.star.img {
+	background-image: url(../../images/raiting/star-empty.png);
+}
+
+.star.webp {
+	background-image: url(../../images/raiting/star-empty.webp);
+}

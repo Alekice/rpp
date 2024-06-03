@@ -108,6 +108,8 @@ img {
 }
 
 .text_decorated {
+	width: 100%;
+	max-width: 760px;
 	padding: 20px;
 	background-color: rgba(255, 255, 255, 0.5);
 	border-left: 3px solid var(--red-color);
@@ -115,4 +117,24 @@ img {
 
 .paragraph + .paragraph {
 	margin-top: 20px;
+}
+
+.paragraph + .list {
+	margin-top: 20px;
+}
+
+.list_unordered {
+	list-style-type: disc;
+	padding-left: 20px;
+}
+
+.link {
+	color: var(--link-color);
+	text-decoration: underline;
+	transition: .3s;
+	cursor: pointer;
+}
+
+.link:hover {
+	text-decoration: none;
 }
