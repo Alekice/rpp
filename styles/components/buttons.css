@@ -1,0 +1,28 @@
+.button {
+	width: 100%;
+	max-width: 280px;
+	height: 60px;
+	font-family: inherit;
+	font-size: 17px;
+	line-height: 17px;
+	font-weight: 700;
+	text-align: center;
+	color: var(--text-color-light);
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.button_dark {
+	background-color: #000000;
+}
+
+.button_light {
+	background-color: var(--red-color);
+}
+
+.text + .button {
+	margin-top: 40px;
+}

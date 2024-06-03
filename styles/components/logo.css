@@ -1,0 +1,30 @@
+.logo {
+	width: 335px;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.logo__image {
+	width: 160px;
+	height: 50px;
+	background-color: var(--red-color);
+	font-size: 20px;
+	line-height: 1;
+	font-weight: 700;
+	color: var(--text-color-light);
+	text-transform: uppercase;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.logo__text {
+	font-size: 14px;
+	padding-left: 12px;
+}

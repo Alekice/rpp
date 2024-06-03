@@ -1,0 +1,276 @@
+<!-- <?php
+session_start();
+if (empty($_SESSION['time'])) {
+	$_SESSION['time'] = time();
+}
+$Month_r = array(
+	"01" => "января",
+	"02" => "февраля",
+	"03" => "марта",
+	"04" => "апреля",
+	"05" => "мая",
+	"06" => "июня",
+	"07" => "июля",
+	"08" => "августа",
+	"09" => "сентября",
+	"10" => "октября",
+	"11" => "ноября",
+	"12" => "декабря"
+);
+
+$date_current = explode(".", date("d.m", strtotime("+1 DAY")));
+$date_digits = date("d.m", strtotime("+1 DAY"));
+$rus_month = $Month_r[$date_current[1]];
+$rus_date = $date_current[0] . '&nbsp;' . $rus_month;
+$yr = date("Y");
+
+if (array_key_exists('url', $_SESSION) && !empty($_SESSION['url'])) {
+	$url = $_SESSION['url'];
+} else {
+	$url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	$_SESSION['url'] = $url;
+}
+
+$utm_source = isset($_GET['utm_source']) ? $_GET['utm_source'] : null;
+
+// Backgrounds
+$webp = 'img';
+if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
+	$webp = 'webp';
+}
+
+function LastModified($file = '')
+{
+	if (empty($file)) {
+		$file = __FILE__;
+	}
+
+	if (!file_exists($file)) {
+		return;
+	}
+	$LastModified_unix = strtotime(date("D, d M Y H:i:s", filectime($file)));
+	$LastModified = gmdate("D, d M Y H:i:s \G\M\T", $LastModified_unix);
+	$IfModifiedSince = false;
+	if (isset($_ENV['HTTP_IF_MODIFIED_SINCE'])) {
+		$IfModifiedSince = strtotime(substr($_ENV['HTTP_IF_MODIFIED_SINCE'], 5));
+	}
+	if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
+		$IfModifiedSince = strtotime(substr($_SERVER['HTTP_IF_MODIFIED_SINCE'], 5));
+	}
+	if ($IfModifiedSince && $IfModifiedSince >= $LastModified_unix) {
+		header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
+		exit;
+	}
+	header('Last-Modified: ' . $LastModified);
+}
+LastModified();
+
+function forPageSpeed(): bool
+{
+	return (stripos(@$_SERVER['HTTP_USER_AGENT'], 'Lighthouse') !== false);
+}
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/includes/common.php';
+
+$title = "";
+$description = "";
+$keywords = "";
+$og_title = "";
+$og_description = "";
+$schema_description = "";
+$h1 = "";
+
+foreach ([
+	'title', 'description', 'keywords', 'og_title', 'og_description', 'schema_description', 'h1'
+] as $var_name) {
+	if ($app->getVar($var_name)) {
+		${$var_name} = $app->getVar($var_name);
+	}
+}
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title><?= $title ?></title>
+	<meta name="description" content="<?= $description ?>" />
+	<meta name="keywords" content="<?= $keywords ?>" />
+	<link href="<?= $app->urlRelCanonical() ?>" rel="canonical" />
+
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Международная классификация товаров и услуг">
+	<meta property="og:url" content="https://mktu.net/">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:image" content="">
+	<meta property="og:title" content="<?= $og_title ?>">
+	<meta property="og:description" content="<?= $og_description ?>">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<link rel="preload" href="styles/fonts/Rubik-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="styles/fonts/Rubik-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="styles/fonts/Rubik-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="styles/critical.css">
+
+</head>
+
+<body>
+
+	<header class="header">
+		<div class="header__top">
+			<div class="container header__top-container">
+				<div class="logo">
+					<div class="logo__image">Logo</div>
+					<p class="logo__text">Независимый рейтинг патентных поверенных и бюро</p>
+				</div>
+				<nav class="menu">
+					<ul class="menu__list">
+						<li class="menu__list-item menu__list-item_active">
+							<a href="" class="menu__list-link">Главная</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">Рейтинги</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">О нас</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">О системе оценок</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__search-form">
+					<form action="" class="search-form">
+						<input class="input search-form__input" data-action="" type="text" placeholder="Что будем искать?" autocomplete="off">
+						<button class="search-form__button"></button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<section class="section section_bg-light header__section">
+			<div class="container">
+				<p class="header__label">Данные актуальны. Последнее обновление&nbsp;- 03.05.2024</p>
+				<h1 class="title section-title">Независимый рейтинг патентных поверенных и бюро</h1>
+				<div class="text text_decorated header__text">
+					<p class="paragraph">
+						С 2024 года Роспатент перестал публиковать данные о лидерах электронной подачи заявок. При этом различных патентных
+						бюро, патентных поверенных-одиночек и просто юристов - как собак нерезаных и с каждым днем становится всё больше. Каждый
+						хвалит себя, приводит какие-то цифры... Но как понять: кто говорит правду, а кто - сильно приукрашивает
+						действительность?
+					</p>
+					<p class="paragraph">
+						Чтобы помочь предпринимателям, изобретателям, правообладателям и прочим желающим официально оформить интеллектуальную
+						собственность ориентироваться в море предложений и сделать правильный выбор, мы, такие хорошие, создали этот независимый
+						рейтинг.
+					</p>
+				</div>
+				<a href="" class="button button_dark header__button">Топ патентных бюро</a>
+			</div>
+		</section>
+	</header>
+
+	<main class="main">
+		<section class="section section_bg-dark">
+			<div class="container">
+				<h2 class="title section-title">
+					<span class="title__highlight">Чек-лист договора с патентным бюро</span>&nbsp;—
+					 скачайте БЕСПЛАТНО!
+				</h2>
+			</div>
+		</section>
+		<section class="section section_bg-light">
+			<div class="container">
+				<h2 class="title section-title">Лучшие патентные бюро России</h2>
+			</div>
+		</section>
+		<section class="section">
+			<div class="container">
+				<p class="title section-title">О нас</p>
+			</div>
+		</section>
+		<section class="section section_bg-dark">
+			<div class="container">
+				<p class="title section-title">
+					<span class="title__highlight">Попали в ТОП рейтинга IPRA?</span>
+					 Поздравляем!
+				</p>
+			</div>
+		</section>
+		<section class="section section_bg-light">
+			<div class="container">
+				<p class="title section-title">FAQ</p>
+				<div class="accordion">
+					<div class="accordion__item">
+						<div class="accordion__item-header">
+							<p class="accordion__title">Откуда вы берете информацию? Рейтингу можно верить?</p>
+							<span class="accordion__toggle-icon"></span>
+						</div>
+						<div class="accordion__item-body">
+							<p class="text">
+								Мы вынуждены отталкиваться от того, что высококачественный прототип будущего проекта обеспечивает широкому кругу
+								(специалистов) участие в формировании как самодостаточных, так и внешне зависимых концептуальных решений. Безусловно,
+								реализация намеченных плановых заданий требует от нас анализа модели развития.
+							</p>
+						</div>
+					</div>
+					<div class="accordion__item">
+						<div class="accordion__item-header">
+							<p class="accordion__title">Зачем вы проводите исследования и составляете рейтинг?</p>
+							<span class="accordion__toggle-icon"></span>
+						</div>
+						<div class="accordion__item-body">
+							<p class="text">
+								Банальные, но неопровержимые выводы, а также реплицированные с зарубежных источников, современные
+								 исследования объявлены нарушающими общечеловеческие нормы этики и морали.
+							</p>
+						</div>
+					</div>
+					<div class="accordion__item">
+						<div class="accordion__item-header">
+							<p class="accordion__title">Как часто обновляется рейтинг?</p>
+							<span class="accordion__toggle-icon"></span>
+						</div>
+						<div class="accordion__item-body">
+							<p class="text">
+								Мы планируем обновлять рейтинг раз в полгода.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section">
+			<div class="container">
+				<p class="title section-title">Наши партнёры</p>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer__container">
+			<div class="logo">
+				<div class="logo__image">Logo</div>
+				<p class="logo__text">Независимый рейтинг патентных поверенных и бюро</p>
+			</div>
+			<p class="copyright">
+				Сайт создан в интересах потребителей. Данные на сайте не являются рекламой и носят информационных характер.
+				Копирование материалов допускается только с разрешения правообладателя.
+				© Рейтинг ПП, 2021.
+			</p>
+		</div>
+	</footer>
+
+	<link rel="stylesheet" href="styles/styles.css">
+
+</body>
+
+</html>
