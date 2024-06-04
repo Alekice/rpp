@@ -8,8 +8,8 @@
 
 .accordion__item {
 	padding: 10px;
-	background-color: var(--text-color-light);
-	box-shadow: 0 5px 10px 0 rgba(48, 71, 88, 0.25);
+	background-color: var(--light-color);
+	box-shadow: 0 5px 10px 0 var(--box-shadow-color);
 }
 
 .accordion__item-header {
@@ -44,17 +44,24 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: auto;
+	opacity: 0.5;
 	transition: .3s;
+	flex-shrink: 0;
 }
 
 .accordion__item_opened .accordion__toggle-icon {
-	transform: rotateX(180deg);
+	transform: rotateX(-180deg);
 }
 
 .accordion__item-body {
 	margin-top: 10px;
 	padding: 20px 10px 10px 10px;
-	border-top: 1px solid #c0c0c0;
+	border-top: 1px solid transparent;
 	display: none;
 	position: relative;
+	transition: border-color .3s;
+}
+
+.accordion__item_opened .accordion__item-body {
+	border-color: rgba(141, 141, 141, 0.5);
 }

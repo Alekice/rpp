@@ -1,7 +1,148 @@
 .footer {
-	background-color: var(--footer-bg-color);
+	background-color: var(--dark-color);
 }
 
 .footer__container {
 	padding-top: 40px;
+}
+
+.footer__inner {
+	display: flex;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+}
+
+.footer__logo {
+	flex-shrink: 0;
+}
+
+.footer__logo-text {
+	color: var(--light-color);
+}
+
+.footer__menu {
+	display: flex;
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+	margin-left: 65px;
+	flex-grow: 1;
+	margin-bottom: 40px;
+}
+
+.footer__menu-item {
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+	flex-grow: 1;
+}
+
+.footer__menu-item + .footer__menu-item {
+	margin-left: 35px;
+}
+
+.footer__menu-item_aligned-right {
+	-webkit-align-items: flex-end;
+	align-items: flex-end;
+}
+
+.footer__title {
+	font-size: 17px;
+	font-weight: 700;
+	color: var(--light-color);
+	margin-bottom: 12px;
+}
+
+.footer__link {
+	font-size: 17px;
+	color: var(--light-color);
+}
+
+.footer__link + .footer__link {
+	margin-top: 8px;
+}
+
+.copyright {
+	font-size: 14px;
+	color: var(--copyright-color);
+	text-align: center;
+}
+
+@media (max-width: 1279px) {
+
+	.footer__inner {
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+
+	.footer__menu {
+		margin-left: 0;
+		margin-top: 40px;
+	}
+
+}
+
+@media (max-width: 979px) {
+
+	.footer__menu-item + .footer__menu-item {
+		margin-left: 20px;
+	}
+
+}
+
+@media (max-width: 767px) {
+
+	.footer__menu {
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	}
+
+	.footer__menu-item {
+		width: 47%;
+		margin-bottom: 30px;
+	}
+
+	.footer__menu-item + .footer__menu-item {
+		margin-left: 0;
+	}
+
+	.footer__menu-item_aligned-right {
+		-webkit-align-items: flex-start;
+		align-items: flex-start;
+	}
+
+}
+
+@media (max-width: 479px) {
+
+	.footer__inner {
+		-webkit-justify-content: center;
+		justify-content: center;
+	}
+
+	.footer__menu {
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	}
+
+	.footer__menu-item {
+		width: 100%;
+		-webkit-align-items: center;
+		align-items: center;
+	}
+
+	.footer__menu-item_aligned-right {
+		-webkit-align-items: center;
+		align-items: center;
+	}
+
 }

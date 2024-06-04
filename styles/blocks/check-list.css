@@ -15,3 +15,54 @@
 	right: -15px;
 	bottom: -35px;
 }
+
+.check-list__container.img:after {
+	background-image: url(../../images/check-list.png);
+}
+
+.check-list__container.webp:after {
+	background-image: url(../../images/check-list.webp);
+}
+
+@media (max-width: 1279px) {
+
+	.check-list__container {
+		padding-right: 275px;
+	}
+
+	.check-list__container:after {
+		width: 400px;
+		height: 377px;
+	}
+
+}
+
+@media (max-width: 979px) {
+
+	.check-list__container {
+		padding-right: 15px;
+	}
+
+	.check-list__container:after {
+		width: 300px;
+		height: 282px;
+		right: 15px;
+	}
+
+	.check-list__paragraph {
+		padding-right: 150px;
+	}
+
+}
+
+@media (max-width: 767px) {
+
+	.check-list__container:after {
+		display: none;
+	}
+
+	.check-list__paragraph {
+		padding-right: 0;
+	}
+
+}

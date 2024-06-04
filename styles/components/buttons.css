@@ -7,7 +7,7 @@
 	line-height: 17px;
 	font-weight: 700;
 	text-align: center;
-	color: var(--text-color-light);
+	color: var(--light-color);
 	display: flex;
 	-webkit-justify-content: center;
 	justify-content: center;
@@ -18,11 +18,11 @@
 }
 
 .button_dark {
-	background-color: #000000;
+	background-color: var(--dark-color);
 }
 
 .button_light {
-	background-color: var(--red-color);
+	background-color: var(--primary-color);
 }
 
 .button::before,
@@ -48,23 +48,23 @@
 }
 
 .button_dark::before {
-	border-top: 1px solid #000000;
-	border-left: 1px solid #000000;
+	border-top: 1px solid var(--dark-color);
+	border-left: 1px solid var(--dark-color);
 }
 
 .button_dark::after {
-	border-bottom: 1px solid #000000;
-	border-right: 1px solid #000000;
+	border-bottom: 1px solid var(--dark-color);
+	border-right: 1px solid var(--dark-color);
 }
 
 .button_light::before {
-	border-top: 1px solid var(--red-color);
-	border-left: 1px solid var(--red-color);
+	border-top: 1px solid var(--primary-color);
+	border-left: 1px solid var(--primary-color);
 }
 
 .button_light::after {
-	border-bottom: 1px solid var(--red-color);
-	border-right: 1px solid var(--red-color);
+	border-bottom: 1px solid var(--primary-color);
+	border-right: 1px solid var(--primary-color);
 }
 
 .button:hover::before,

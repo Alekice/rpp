@@ -1,0 +1,141 @@
+.award__cards {
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+	margin-top: 70px;
+	margin-right: -45px;
+	margin-bottom: -45px;
+}
+
+.award__card {
+	width: 33%;
+	max-width: 360px;
+	margin-right: 45px;
+	margin-bottom: 45px;
+	background-repeat: no-repeat;
+	background-size: 96px;
+	background-position: top 4px right 4px;
+}
+
+.award__card_with-bg {
+	background-color: var(--light-color);
+	color: var(--medium-color);
+	padding: 4px;
+}
+
+.award__card_one {
+	background-image: url(../../images/award/award-light1.png);
+}
+
+.award__card_one.img {
+	background-image: url(../../images/award/award-light1.png);
+}
+
+.award__card_one.webp {
+	background-image: url(../../images/award/award-light1.webp);
+}
+
+.award__card_two {
+	background-image: url(../../images/award/award-dark1.png);
+}
+
+.award__card_two.img {
+	background-image: url(../../images/award/award-dark1.png);
+}
+
+.award__card_two.webp {
+	background-image: url(../../images/award/award-dark1.webp);
+}
+
+.award__card_three {
+	background-image: url(../../images/award/award-light2.png);
+}
+
+.award__card_three.img {
+	background-image: url(../../images/award/award-light2.png);
+}
+
+.award__card_three.webp {
+	background-image: url(../../images/award/award-light2.webp);
+}
+
+.award__card-heading {
+	padding-right: 90px;
+	display: flex;
+	-webkit-align-items: flex-end;
+	align-items: flex-end;
+}
+
+.award__card-title {
+	font-size: 40px;
+	line-height: 1;
+	font-weight: 700;
+}
+
+.award__card-subtitle {
+	font-size: 12px;
+	margin-left: 12px;
+	margin-bottom: 3px;
+}
+
+.award__card-text {
+	padding-right: 90px;
+	margin: 16px 0 10px 0;
+}
+
+.award__card-link {
+	text-align: center;
+}
+
+@media (max-width: 1279px) {
+
+	.award__cards {
+		margin-right: -30px;
+	}
+
+	.award__card {
+		width: 30%;
+		margin-right: 30px;
+	}
+
+}
+
+@media (max-width: 979px) {
+
+	.award__cards {
+		margin-right: -20px;
+	}
+
+	.award__card {
+		margin-right: 20px;
+	}
+
+}
+
+@media (max-width: 979px) {
+
+	.award__cards {
+		margin-right: -20px;
+	}
+
+	.award__card {
+		width: 47%;
+		margin-right: 20px;
+	}
+
+}
+
+@media (max-width: 767px) {
+
+	.award__cards {
+		margin-right: -10px;
+	}
+
+	.award__card {
+		width: 100%;
+		margin-right: 10px;
+	}
+
+}

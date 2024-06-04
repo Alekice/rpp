@@ -128,9 +128,9 @@ foreach ([
 	<header class="header">
 		<div class="header__top">
 			<div class="container header__top-container">
-				<div class="logo">
+				<div class="logo header__logo">
 					<div class="logo__image">Logo</div>
-					<p class="logo__text">Независимый рейтинг патентных поверенных и бюро</p>
+					<p class="logo__text header__logo-text">Независимый рейтинг патентных поверенных и бюро</p>
 				</div>
 				<nav class="menu">
 					<ul class="menu__list">
@@ -153,6 +153,11 @@ foreach ([
 						<input class="input search-form__input" data-action="" type="text" placeholder="Что будем искать?" autocomplete="off">
 						<button class="search-form__button"></button>
 					</form>
+				</div>
+				<div class="burger-menu">
+					<span class="burger-menu__line"></span>
+					<span class="burger-menu__line"></span>
+					<span class="burger-menu__line"></span>
 				</div>
 			</div>
 		</div>
@@ -190,7 +195,7 @@ foreach ([
 						Наши эксперты подготовили для вас <b>специальный чек-лист</b>, с помощью которого вы не попадетесь на популярные уловки
 						недобросовестных патентных бюро или поверенных, и <b>заключенный договор будет максимально защищать ваши интересы</b>.
 					</p>
-					<p class="paragraph">
+					<p class="paragraph check-list__paragraph">
 						На какой счет оплачиваются государственные пошлины, какие сроки регистрации считаются адекватными, как должна быть
 						прописана гарантия на услуги — это и многое другое вы узнаете из подготовленного документа.
 					</p>
@@ -222,7 +227,7 @@ foreach ([
 							<div class="table__cell table__cell_centered">Сайт</div>
 						</div>
 					</div>
-					<div class="table__body">
+					<div class="table__body table-slider">
 						<div class="table__row">
 							<div class="table__cell table__cell_centered">1</div>
 							<div class="table__cell">ООО «Патентное бюро «ЖЕЛЕЗНО»</div>
@@ -482,6 +487,69 @@ foreach ([
 						  <b>Вы можете скачать подходящий вариант и разместить на своём сайте.</b>
 					</p>
 				</div>
+
+				<div class="award__cards">
+					<div class="award__card award__card_one <?= $webp ?>">
+						<div class="award__card-heading">
+							<p class="award__card-title">№1</p>
+							<p class="award__card-subtitle">03.05.24</p>
+						</div>
+						<p class="award__card-text">
+							IPRA — независимый рейтинг патентных поверенных и бюро
+						</p>
+						<div class="award__card-link">
+							<a href="" class="link link_light">Скачать награду</a>
+						</div>
+					</div>
+					<div class="award__card award__card_two award__card_with-bg <?= $webp ?>">
+						<div class="award__card-heading">
+							<p class="award__card-title">№2</p>
+							<p class="award__card-subtitle">03.05.24</p>
+						</div>
+						<p class="award__card-text">
+							IPRA — независимый рейтинг патентных поверенных и бюро
+						</p>
+						<div class="award__card-link">
+							<a href="" class="link">Скачать награду</a>
+						</div>
+					</div>
+					<div class="award__card award__card_one <?= $webp ?>">
+						<div class="award__card-heading">
+							<p class="award__card-title">№3</p>
+							<p class="award__card-subtitle">03.05.24</p>
+						</div>
+						<p class="award__card-text">
+							IPRA — независимый рейтинг патентных поверенных и бюро
+						</p>
+						<div class="award__card-link">
+							<a href="" class="link link_light">Скачать награду</a>
+						</div>
+					</div>
+					<div class="award__card award__card_three <?= $webp ?>">
+						<div class="award__card-heading">
+							<p class="award__card-title">№4</p>
+							<p class="award__card-subtitle">03.05.24</p>
+						</div>
+						<p class="award__card-text">
+							IPRA — независимый рейтинг патентных поверенных и бюро
+						</p>
+						<div class="award__card-link">
+							<a href="" class="link link_light">Скачать награду</a>
+						</div>
+					</div>
+					<div class="award__card award__card_three <?= $webp ?>">
+						<div class="award__card-heading">
+							<p class="award__card-title">№5</p>
+							<p class="award__card-subtitle">03.05.24</p>
+						</div>
+						<p class="award__card-text">
+							IPRA — независимый рейтинг патентных поверенных и бюро
+						</p>
+						<div class="award__card-link">
+							<a href="" class="link link_light">Скачать награду</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 		<section class="section section_bg-light">
@@ -642,19 +710,46 @@ foreach ([
 
 	<footer class="footer">
 		<div class="container footer__container">
-			<div class="logo">
-				<div class="logo__image">Logo</div>
-				<p class="logo__text">Независимый рейтинг патентных поверенных и бюро</p>
+			<div class="footer__inner">
+				<div class="logo footer__logo">
+					<div class="logo__image">Logo</div>
+					<p class="logo__text footer__logo-text">Независимый рейтинг патентных поверенных и бюро</p>
+				</div>
+				<div class="footer__menu">
+					<div class="footer__menu-item">
+						<p class="footer__title">Рейтинги</p>
+						<a href="" class="link footer__link">Топ патентных бюро</a>
+						<a href="" class="link footer__link">Лидеры подачи заявок</a>
+					</div>
+					<div class="footer__menu-item">
+						<p class="footer__title">О системе оценок</p>
+					</div>
+					<div class="footer__menu-item">
+						<p class="footer__title">Информация</p>
+						<a href="" class="link footer__link">Партнеры</a>
+						<a href="" class="link footer__link">Участникам рейтинга</a>
+						<a href="" class="link footer__link">Патентным поверенным</a>
+					</div>
+					<div class="footer__menu-item footer__menu-item_aligned-right">
+						<p class="footer__title">Контакты</p>
+						<a href="mailto:mail@ipra.com" class="link footer__link">mail@ipra.com</a>
+					</div>
+				</div>
 			</div>
 			<p class="copyright">
-				Сайт создан в интересах потребителей. Данные на сайте не являются рекламой и носят информационных характер.
-				Копирование материалов допускается только с разрешения правообладателя.
+				Сайт создан в интересах потребителей. Данные на сайте не являются рекламой и носят информационных характер.<br>
+				Копирование материалов допускается только с разрешения правообладателя.<br>
 				© Рейтинг ПП, 2021.
 			</p>
 		</div>
 	</footer>
 
 	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="styles/slick-slider.min.css" />
+
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/main.js"></script>
+	<script src="scripts/slick-slider.min.js"></script>
 
 </body>
 

@@ -1,20 +1,20 @@
 .table__head {
-	background-color: #d4d4d4;
-	border-top: 5px solid var(--text-color-dark);
+	background-color: rgba(141, 141, 141, 0.3);
+	border-top: 5px solid var(--medium-color);
 	font-size: 17px;
 	font-weight: 700;
 }
 
 .table__row {
 	display: grid;
-	grid-template-columns: 100px 550px 280px 230px;
-	border-left: 1px solid var(--text-color-dark);
-	border-right: 1px solid var(--text-color-dark);
-	border-bottom: 1px solid var(--text-color-dark);
+	grid-template-columns: 8% 47% 24% 21%;
+	border-left: 1px solid var(--medium-color);
+	border-right: 1px solid var(--medium-color);
+	border-bottom: 1px solid var(--medium-color);
 }
 
 .table__row:nth-of-type(2n) {
-	background-color: var(--text-color-light);
+	background-color: var(--light-color);
 }
 
 .table__cell {
@@ -22,9 +22,25 @@
 }
 
 .table__cell + .table__cell {
-	border-left: 1px solid var(--text-color-dark);
+	border-left: 1px solid var(--medium-color);
 }
 
 .table__cell_centered {
 	text-align: center;
+}
+
+@media (max-width: 979px) {
+
+	.table__head {
+		font-size: 16px;
+	}
+
+	.table__row {
+		grid-template-columns: 9% 44% 20% 27%;
+	}
+
+	.table__cell {
+		padding: 10px 5px;
+	}
+
 }

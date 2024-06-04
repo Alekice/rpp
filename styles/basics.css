@@ -1,26 +1,19 @@
 :root {
 	--font-family: "Rubik", Arial, sans-serif;
-	/* --primary-color: #d13030;
+	--primary-color: #d13030;
 	--secondary-color: #1d7d7d;
 	--tertiary-color: #ffd300;
-	--background-color-dark: #0e3a5d;
-	--background-color-light: #f0f1f3;
-	--success-color: #;
-	--warning-color: #;
-	--danger-color: #;
 	--dark-color: #222222;
 	--medium-color: #444444;
-	--light-color: #ffffff; */
-	--text-color-dark: #444444;
-	--text-color-light: #ffffff;
-	--footer-bg-color: #222222;
-	--red-color: #d13030;
-	--yellow-color: #ffd300;
+	--light-color: #ffffff;
 	--background-color-dark: #0e3a5d;
-	--link-color: #1d7d7d;
-	--link-awar-color: #62e5e5;
 	--background-color-light: #f0f1f3;
-	--copyright-color: #8d8d8d;
+	--copyright-color: #8d8d8d; /* rgba(141, 141, 141) */
+	--box-shadow-color: rgba(48, 71, 88, 0.25);
+	--link-color: #62e5e5;
+	/* --success-color: #;
+	--warning-color: #;
+	--danger-color: #; */
 }
 
 * {
@@ -40,7 +33,7 @@ body {
 	font-family: var(--font-family);
 	font-size: 16px;
 	line-height: 1.2;
-	color: var(--text-color-dark);
+	color: var(--medium-color);
 }
 
 a {
@@ -75,7 +68,7 @@ img {
 
 .section_bg-dark {
 	background-color: var(--background-color-dark);
-	color: var(--text-color-light);
+	color: var(--light-color);
 }
 
 .container {
@@ -91,7 +84,7 @@ img {
 }
 
 .title__highlight {
-	color: var(--yellow-color);
+	color: var(--tertiary-color);
 }
 
 .main-title {
@@ -112,7 +105,7 @@ img {
 	max-width: 760px;
 	padding: 20px;
 	background-color: rgba(255, 255, 255, 0.5);
-	border-left: 3px solid var(--red-color);
+	border-left: 3px solid var(--primary-color);
 }
 
 .paragraph + .paragraph {
@@ -129,7 +122,7 @@ img {
 }
 
 .link {
-	color: var(--link-color);
+	color: var(--secondary-color);
 	text-decoration: underline;
 	transition: .3s;
 	cursor: pointer;
@@ -137,4 +130,49 @@ img {
 
 .link:hover {
 	text-decoration: none;
+}
+
+.link_light {
+	color: var(--link-color);
+}
+
+@media (max-width: 1279px) {
+
+	.container {
+		max-width: 950px;
+	}
+
+}
+
+@media (max-width: 979px) {
+
+	.container {
+		max-width: 750px;
+		padding: 60px 15px;
+	}
+
+}
+
+@media (max-width: 767px) {
+
+	.container {
+		max-width: unset;
+	}
+
+	.section-title {
+		font-size: 28px;
+	}
+
+}
+
+@media (max-width: 479px) {
+
+	.section-title {
+		margin-bottom: 25px;
+	}
+
+	.section-title {
+		font-size: 25px;
+	}
+
 }
