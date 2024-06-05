@@ -39,7 +39,7 @@ $(document).ready(function() {
 function init_table_slider() {
 	$('.table-slider').slick({
 		infinite: true,
-		arrows: true,
+		arrows: false, // true
 		dots: true,
 		adaptiveHeight: false,
 		slidesToShow: 1,

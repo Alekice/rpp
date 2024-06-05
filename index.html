@@ -221,202 +221,328 @@ foreach ([
 				<div class="table best-pa__table">
 					<div class="table__head">
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">Место</div>
-							<div class="table__cell table__cell_centered">Название патентного бюро / ФИО патентного поверенного</div>
-							<div class="table__cell table__cell_centered">Рейтинг</div>
-							<div class="table__cell table__cell_centered">Сайт</div>
+							<div class="table__row-inner">
+								<div class="table__cell table__cell_centered">Место</div>
+								<div class="table__cell table__cell_centered">Название патентного бюро / ФИО патентного поверенного</div>
+								<div class="table__cell table__cell_centered">Рейтинг</div>
+								<div class="table__cell table__cell_centered">Сайт</div>
+							</div>
 						</div>
 					</div>
 					<div class="table__body table-slider">
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">1</div>
-							<div class="table__cell">ООО «Патентное бюро «ЖЕЛЕЗНО»</div>
-							<div class="table__cell">
-								<div class="raiting">
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
+							<div class="table__row-inner">
+								<!-- <div class="table__cell table__heading">Место</div> -->
+								<div class="table__cell table__cell_centered">
+									<span class="table__cell-title">Место</span>
+									<span>1</span>
+								</div>
+								<!-- <div class="table__cell table__heading">Название патентного бюро / ФИО патентного поверенного</div> -->
+								<div class="table__cell">
+									<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+									<span>ООО «Патентное бюро «ЖЕЛЕЗНО»</span>
+								</div>
+								<!-- <div class="table__cell table__heading">Рейтинг</div> -->
+								<div class="table__cell">
+									<span class="table__cell-title">Рейтинг</span>
+									<div class="raiting">
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+									</div>
+								</div>
+								<!-- <div class="table__cell table__heading">Сайт</div> -->
+								<div class="table__cell">
+									<span class="table__cell-title">Сайт</span>
+									<span href="" class="link">zhelezno.com</span>
 								</div>
 							</div>
-							<div class="table__cell"><span href="" class="link">zhelezno.com</span></div>
 						</div>
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">2</div>
-							<div class="table__cell">ООО «БизБренд»</div>
-							<div class="table__cell">
-								<div class="raiting">
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
+							<div class="table__row-inner">
+								<div class="table__cell table__cell_centered">
+									<span class="table__cell-title">Место</span>
+									<span>2</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+									<span>ООО «БизБренд»</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Рейтинг</span>
+									<div class="raiting">
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+									</div>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Сайт</span>
+									<span href="" class="link">biz-brand.ru</span>
 								</div>
 							</div>
-							<div class="table__cell"><span href="" class="link">biz-brand.ru</span></div>
 						</div>
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">3-4</div>
-							<div class="table__cell">ООО «ОНЛАЙН ПАТЕНТ»</div>
-							<div class="table__cell">
-								<div class="raiting">
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
+							<div class="table__row-inner">
+								<div class="table__cell table__cell_centered">
+									<span class="table__cell-title">Место</span>
+									<span>3-4</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+									<span>ООО «ОНЛАЙН ПАТЕНТ»</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Рейтинг</span>
+									<div class="raiting">
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+									</div>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Сайт</span>
+									<span href="" class="link">onlinepatent.ru</span>
 								</div>
 							</div>
-							<div class="table__cell"><span href="" class="link">onlinepatent.ru</span></div>
 						</div>
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">3-4</div>
-							<div class="table__cell">Юридическая фирма «Городисский и партнеры»</div>
-							<div class="table__cell">
-								<div class="raiting">
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
+							<div class="table__row-inner">
+								<div class="table__cell table__cell_centered">
+									<span class="table__cell-title">Место</span>
+									<span>3-4</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+									<span>Юридическая фирма «Городисский и партнеры»</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Рейтинг</span>
+									<div class="raiting">
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+									</div>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Сайт</span>
+									<span href="" class="link">gorodissky.ru</span>
 								</div>
 							</div>
-							<div class="table__cell"><span href="" class="link">gorodissky.ru</span></div>
 						</div>
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">5-7</div>
-							<div class="table__cell">ООО «Дивизион»</div>
-							<div class="table__cell">
-								<div class="raiting">
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
+							<div class="table__row-inner">
+								<div class="table__cell table__cell_centered">
+									<span class="table__cell-title">Место</span>
+									<span>5-7</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+									<span>ООО «Дивизион»</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Рейтинг</span>
+									<div class="raiting">
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+									</div>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Сайт</span>
+									<span href="" class="link">hallmark.pro</span>
 								</div>
 							</div>
-							<div class="table__cell"><span href="" class="link">hallmark.pro</span></div>
 						</div>
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">5-7</div>
-							<div class="table__cell">ООО «Патентус»</div>
-							<div class="table__cell">
-								<div class="raiting">
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
+							<div class="table__row-inner">
+								<div class="table__cell table__cell_centered">
+									<span class="table__cell-title">Место</span>
+									<span>5-7</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+									<span>ООО «Патентус»</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Рейтинг</span>
+									<div class="raiting">
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+									</div>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Сайт</span>
+									<span href="" class="link">patentus.ru</span>
 								</div>
 							</div>
-							<div class="table__cell"><span href="" class="link">patentus.ru</span></div>
 						</div>
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">5-7</div>
-							<div class="table__cell">ООО «ФПБ Гардиум»</div>
-							<div class="table__cell">
-								<div class="raiting">
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
+							<div class="table__row-inner">
+								<div class="table__cell table__cell_centered">
+									<span class="table__cell-title">Место</span>
+									<span>5-7</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+									<span>ООО «ФПБ Гардиум»</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Рейтинг</span>
+									<div class="raiting">
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+									</div>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Сайт</span>
+									<span href="" class="link">legal-support.ru</span>
 								</div>
 							</div>
-							<div class="table__cell"><span href="" class="link">legal-support.ru</span></div>
 						</div>
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">8</div>
-							<div class="table__cell">ООО «Лирейт»</div>
-							<div class="table__cell">
-								<div class="raiting">
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
+							<div class="table__row-inner">
+								<div class="table__cell table__cell_centered">
+									<span class="table__cell-title">Место</span>
+									<span>8</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+									<span>ООО «Лирейт»</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Рейтинг</span>
+									<div class="raiting">
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+									</div>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Сайт</span>
+									<span href="" class="link">lireate.ru</span>
 								</div>
 							</div>
-							<div class="table__cell"><span href="" class="link">lireate.ru</span></div>
 						</div>
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">9</div>
-							<div class="table__cell">ООО «Центр защиты товарных знаков»</div>
-							<div class="table__cell">
-								<div class="raiting">
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
+							<div class="table__row-inner">
+								<div class="table__cell table__cell_centered">
+									<span class="table__cell-title">Место</span>
+									<span>9</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+									<span>ООО «Центр защиты товарных знаков»</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Рейтинг</span>
+									<div class="raiting">
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+									</div>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Сайт</span>
+									<span href="" class="link">trademark-support.ru</span>
 								</div>
 							</div>
-							<div class="table__cell"><span href="" class="link">trademark-support.ru</span></div>
 						</div>
 						<div class="table__row">
-							<div class="table__cell table__cell_centered">10</div>
-							<div class="table__cell">ООО «Башук Чичканов, юридическая фирма»</div>
-							<div class="table__cell">
-								<div class="raiting">
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
-									<span class="star star_empty <?= $webp ?>"></span>
+							<div class="table__row-inner">
+								<div class="table__cell table__cell_centered">
+									<span class="table__cell-title">Место</span>
+									<span>10</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+									<span>ООО «Башук Чичканов, юридическая фирма»</span>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Рейтинг</span>
+									<div class="raiting">
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+										<span class="star star_empty <?= $webp ?>"></span>
+									</div>
+								</div>
+								<div class="table__cell">
+									<span class="table__cell-title">Сайт</span>
+									<span href="" class="link">bashukchichkanov.com</span>
 								</div>
 							</div>
-							<div class="table__cell"><span href="" class="link">bashukchichkanov.com</span></div>
 						</div>
 					</div>
 				</div>
