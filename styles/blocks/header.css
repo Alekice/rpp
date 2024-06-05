@@ -10,6 +10,7 @@
 	justify-content: space-between;
 	-webkit-align-items: center;
 	align-items: center;
+	position: relative;
 }
 
 .header__search-form {
