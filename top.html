@@ -1136,7 +1136,24 @@ foreach ([
 			<div class="container">
 				<h2 class="title section-title">Что по количеству заявок сейчас</h2>
 				<p class="label">Данные актуальны. Последнее обновление&nbsp;- 03.05.2024</p>
-				
+				<div class="tabs">
+					<div class="tabs__nav">
+						<button class="tabs__nav-btn active" type="button" data-tab="1">С начала года</button>
+						<button class="tabs__nav-btn" type="button" data-tab="2">За год</button>
+						<button class="tabs__nav-btn" type="button" data-tab="3">Выбрать период 🠋</button>
+					</div>
+					<div class="tabs__content">
+						<div class="tabs__item active" data-tab="1">
+							<div class="chart">
+								<div class="chart__inner" id="chart-pa"></div>
+							</div>
+						</div>
+						<div class="tabs__item" data-tab="2">
+						</div>
+						<div class="tabs__item" data-tab="3">
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -1183,6 +1200,8 @@ foreach ([
 	<script src="scripts/jquery.js"></script>
 	<script src="scripts/main.js"></script>
 	<script src="scripts/slick-slider.min.js"></script>
+	<script src="scripts/zingchart.min.js"></script>
+	<script src="scripts/chart.js"></script>
 
 </body>
 
