@@ -2,8 +2,8 @@
 @import "./components/table.css";
 @import "./components/raiting.css";
 @import "./components/tiles.css";
+@import "./components/tabs.css";
 
 @import "./blocks/check-list.css";
-@import "./blocks/best-pa.css";
 @import "./blocks/award.css";
 @import "./blocks/footer.css";

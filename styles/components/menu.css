@@ -99,7 +99,7 @@
 		min-width: 300px;
 		top: -500px;
 		right: 10px;
-		background-color: var(--copyright-color);
+		background-color: var(--light-medium-color);
 		border-top: 5px solid var(--primary-color);
 		color: var(--light-color);
 		box-shadow: 0 5px 10px -2px var(--box-shadow-color);

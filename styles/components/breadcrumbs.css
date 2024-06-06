@@ -1,0 +1,23 @@
+.breadcrumb {
+	color: var(--light-medium-color);
+	display: inline-flex;
+}
+
+
+.breadcrumb__link {
+	color: inherit;
+}
+
+.breadcrumb__separator {
+	color: var(--light-medium-color);
+	margin: -1px 5px 0 5px;
+}
+
+
+@media (max-width: 767px) {
+
+	.breadcrumb + .breadcrumb {
+		margin-top: 5px;
+	}
+
+}

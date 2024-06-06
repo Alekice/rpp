@@ -1,0 +1,1189 @@
+<!-- <?php
+session_start();
+if (empty($_SESSION['time'])) {
+	$_SESSION['time'] = time();
+}
+$Month_r = array(
+	"01" => "января",
+	"02" => "февраля",
+	"03" => "марта",
+	"04" => "апреля",
+	"05" => "мая",
+	"06" => "июня",
+	"07" => "июля",
+	"08" => "августа",
+	"09" => "сентября",
+	"10" => "октября",
+	"11" => "ноября",
+	"12" => "декабря"
+);
+
+$date_current = explode(".", date("d.m", strtotime("+1 DAY")));
+$date_digits = date("d.m", strtotime("+1 DAY"));
+$rus_month = $Month_r[$date_current[1]];
+$rus_date = $date_current[0] . '&nbsp;' . $rus_month;
+$yr = date("Y");
+
+if (array_key_exists('url', $_SESSION) && !empty($_SESSION['url'])) {
+	$url = $_SESSION['url'];
+} else {
+	$url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	$_SESSION['url'] = $url;
+}
+
+$utm_source = isset($_GET['utm_source']) ? $_GET['utm_source'] : null;
+
+// Backgrounds
+$webp = 'img';
+if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
+	$webp = 'webp';
+}
+
+function LastModified($file = '')
+{
+	if (empty($file)) {
+		$file = __FILE__;
+	}
+
+	if (!file_exists($file)) {
+		return;
+	}
+	$LastModified_unix = strtotime(date("D, d M Y H:i:s", filectime($file)));
+	$LastModified = gmdate("D, d M Y H:i:s \G\M\T", $LastModified_unix);
+	$IfModifiedSince = false;
+	if (isset($_ENV['HTTP_IF_MODIFIED_SINCE'])) {
+		$IfModifiedSince = strtotime(substr($_ENV['HTTP_IF_MODIFIED_SINCE'], 5));
+	}
+	if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
+		$IfModifiedSince = strtotime(substr($_SERVER['HTTP_IF_MODIFIED_SINCE'], 5));
+	}
+	if ($IfModifiedSince && $IfModifiedSince >= $LastModified_unix) {
+		header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
+		exit;
+	}
+	header('Last-Modified: ' . $LastModified);
+}
+LastModified();
+
+function forPageSpeed(): bool
+{
+	return (stripos(@$_SERVER['HTTP_USER_AGENT'], 'Lighthouse') !== false);
+}
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/includes/common.php';
+
+$title = "";
+$description = "";
+$keywords = "";
+$og_title = "";
+$og_description = "";
+$schema_description = "";
+$h1 = "";
+
+foreach ([
+	'title', 'description', 'keywords', 'og_title', 'og_description', 'schema_description', 'h1'
+] as $var_name) {
+	if ($app->getVar($var_name)) {
+		${$var_name} = $app->getVar($var_name);
+	}
+}
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title><?= $title ?></title>
+	<meta name="description" content="<?= $description ?>" />
+	<meta name="keywords" content="<?= $keywords ?>" />
+	<link href="<?= $app->urlRelCanonical() ?>" rel="canonical" />
+
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Международная классификация товаров и услуг">
+	<meta property="og:url" content="https://mktu.net/">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:image" content="">
+	<meta property="og:title" content="<?= $og_title ?>">
+	<meta property="og:description" content="<?= $og_description ?>">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<link rel="preload" href="styles/fonts/Rubik-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="styles/fonts/Rubik-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="styles/fonts/Rubik-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="styles/critical.css">
+
+</head>
+
+<body>
+
+	<header class="header">
+		<div class="header__top">
+			<div class="container header__top-container">
+				<div class="logo header__logo">
+					<div class="logo__image">Logo</div>
+					<p class="logo__text header__logo-text">Независимый рейтинг патентных поверенных и бюро</p>
+				</div>
+				<nav class="menu">
+					<ul class="menu__list">
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">Главная</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">Рейтинги</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">О нас</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">О системе оценок</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__search-form">
+					<form action="" class="search-form">
+						<input class="input search-form__input" data-action="" type="text" placeholder="Что будем искать?" autocomplete="off">
+						<button class="search-form__button"></button>
+					</form>
+				</div>
+				<div class="burger-menu">
+					<span class="burger-menu__line"></span>
+					<span class="burger-menu__line"></span>
+					<span class="burger-menu__line"></span>
+				</div>
+			</div>
+		</div>
+		<section class="section section_bg-light">
+			<div class="container header__main-container">
+				<div class="breadcrumbs header__breadcrumbs">
+					<div class="breadcrumb">
+						<a class="link breadcrumb__link" href="/">Рейтинг IPRA</a>
+						<span class="breadcrumb__separator">></span>
+					</div>
+					<div class="breadcrumb">Лидеры по количеству заявок за 2023 год</div>
+				</div>
+				<p class="label header__label">Данные актуальны. Последнее обновление&nbsp;- 03.05.2024</p>
+				<h1 class="title section-title">Лидеры подачи заявок в Роспатент за 2023 год</h1>
+				<div class="tabs">
+					<div class="tabs__nav">
+						<button class="tabs__nav-btn active" type="button" data-tab="1">Товарные знаки</button>
+						<button class="tabs__nav-btn" type="button" data-tab="2">Изобретения и полезные модели</button>
+						<button class="tabs__nav-btn" type="button" data-tab="3">Промышленные образцы</button>
+						<button class="tabs__nav-btn" type="button" data-tab="4">Общее количество</button>
+					</div>
+					<div class="tabs__content">
+						<div class="tabs__item active" data-tab="1">
+							<div class="table">
+								<div class="table__head">
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">Место</div>
+											<div class="table__cell table__cell_centered">Название патентного бюро / ФИО патентного
+												поверенного
+											</div>
+											<div class="table__cell table__cell_centered">Количество заявок *</div>
+											<div class="table__cell table__cell_centered">Сайт</div>
+										</div>
+									</div>
+								</div>
+								<div class="table__body mobile-slider">
+									<div class="table__row">
+										<div class="table__row-inner">
+											<!-- <div class="table__cell table__heading">Место</div> -->
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>1</span>
+											</div>
+											<!-- <div class="table__cell table__heading">Название патентного бюро / ФИО патентного поверенного</div> -->
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Патентное бюро «ЖЕЛЕЗНО»</span>
+											</div>
+											<!-- <div class="table__cell table__heading">Количество заявок *</div> -->
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>3 052 <span class="note">(3 099)</span></span>
+											</div>
+											<!-- <div class="table__cell table__heading">Сайт</div> -->
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">zhelezno.com</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>2</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «БизБренд»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 924 <span class="note">(3 759)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">biz-brand.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>3</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «ОНЛАЙН ПАТЕНТ»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 828 <span class="note">(2 868)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">onlinepatent.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>4</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>Юридическая фирма «Городисский и партнеры»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 004 <span class="note">(2 017)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">gorodissky.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>5</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Дивизион»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 878 <span class="note">(1 941)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">hallmark.pro</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>6</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Патентус»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 818 <span class="note">(2 532)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">patentus.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>7</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «ФПБ Гардиум»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 332 <span class="note">(1 379)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">legal-support.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>8</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Лирейт»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 202 <span class="note">(1 233)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">lireate.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>9</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Центр защиты товарных знаков»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 181 <span class="note">(1 190)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">trademark-support.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>10</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Башук Чичканов, юридическая фирма»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 018 <span class="note">(1 036)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">bashukchichkanov.com</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<p class="table__footnote">
+									* — рейтинг составляется по количеству заявок с оплаченной первой пошлиной, общее количество поданных
+									заявок указано в скобках. Первая пошлина оплачивается для того, чтобы эксперты Роспатента начали
+									рассматривать заявку.
+									Отсутствие оплаты первой пошлины для большого количества заявок может свидетельствовать о попытках
+									накруток и
+									манипуляций с различными рейтингами.
+								</p>
+							</div>
+						</div>
+						<div class="tabs__item" data-tab="2">
+							<div class="table">
+								<div class="table__head">
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">Место</div>
+											<div class="table__cell table__cell_centered">Название патентного бюро / ФИО патентного
+												поверенного
+											</div>
+											<div class="table__cell table__cell_centered">Количество заявок *</div>
+											<div class="table__cell table__cell_centered">Сайт</div>
+										</div>
+									</div>
+								</div>
+								<div class="table__body mobile-slider">
+									<div class="table__row">
+										<div class="table__row-inner">
+											<!-- <div class="table__cell table__heading">Место</div> -->
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>1</span>
+											</div>
+											<!-- <div class="table__cell table__heading">Название патентного бюро / ФИО патентного поверенного</div> -->
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Патентное бюро «ЖЕЛЕЗНО»</span>
+											</div>
+											<!-- <div class="table__cell table__heading">Количество заявок *</div> -->
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>3 052 <span class="note">(3 099)</span></span>
+											</div>
+											<!-- <div class="table__cell table__heading">Сайт</div> -->
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">zhelezno.com</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>2</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «БизБренд»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 924 <span class="note">(3 759)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">biz-brand.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>3</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «ОНЛАЙН ПАТЕНТ»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 828 <span class="note">(2 868)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">onlinepatent.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>4</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ТАБЛИЦА 2 ТАБЛИЦА 2 ТАБЛИЦА 2</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 004 <span class="note">(2 017)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">gorodissky.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>5</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Дивизион»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 878 <span class="note">(1 941)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">hallmark.pro</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>6</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Патентус»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 818 <span class="note">(2 532)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">patentus.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>7</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «ФПБ Гардиум»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 332 <span class="note">(1 379)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">legal-support.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>8</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Лирейт»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 202 <span class="note">(1 233)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">lireate.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>9</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Центр защиты товарных знаков»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 181 <span class="note">(1 190)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">trademark-support.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>10</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Башук Чичканов, юридическая фирма»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 018 <span class="note">(1 036)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">bashukchichkanov.com</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<p class="table__footnote">
+									* — ТАБЛИЦА 2
+								</p>
+							</div>
+						</div>
+						<div class="tabs__item" data-tab="3">
+							<div class="table">
+								<div class="table__head">
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">Место</div>
+											<div class="table__cell table__cell_centered">Название патентного бюро / ФИО патентного
+												поверенного
+											</div>
+											<div class="table__cell table__cell_centered">Количество заявок *</div>
+											<div class="table__cell table__cell_centered">Сайт</div>
+										</div>
+									</div>
+								</div>
+								<div class="table__body mobile-slider">
+									<div class="table__row">
+										<div class="table__row-inner">
+											<!-- <div class="table__cell table__heading">Место</div> -->
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>1</span>
+											</div>
+											<!-- <div class="table__cell table__heading">Название патентного бюро / ФИО патентного поверенного</div> -->
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Патентное бюро «ЖЕЛЕЗНО»</span>
+											</div>
+											<!-- <div class="table__cell table__heading">Количество заявок *</div> -->
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>3 052 <span class="note">(3 099)</span></span>
+											</div>
+											<!-- <div class="table__cell table__heading">Сайт</div> -->
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">zhelezno.com</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>2</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «БизБренд»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 924 <span class="note">(3 759)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">biz-brand.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>3</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «ОНЛАЙН ПАТЕНТ»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 828 <span class="note">(2 868)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">onlinepatent.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>4</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ТАБЛИЦА 3 ТАБЛИЦА 3 ТАБЛИЦА 3</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 004 <span class="note">(2 017)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">gorodissky.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>5</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Дивизион»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 878 <span class="note">(1 941)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">hallmark.pro</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>6</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Патентус»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 818 <span class="note">(2 532)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">patentus.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>7</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «ФПБ Гардиум»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 332 <span class="note">(1 379)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">legal-support.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>8</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Лирейт»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 202 <span class="note">(1 233)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">lireate.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>9</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Центр защиты товарных знаков»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 181 <span class="note">(1 190)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">trademark-support.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>10</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Башук Чичканов, юридическая фирма»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 018 <span class="note">(1 036)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">bashukchichkanov.com</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<p class="table__footnote">
+									* — ТАБЛИЦА 3
+								</p>
+							</div>
+						</div>
+						<div class="tabs__item" data-tab="4">
+							<div class="table">
+								<div class="table__head">
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">Место</div>
+											<div class="table__cell table__cell_centered">Название патентного бюро / ФИО патентного
+												поверенного
+											</div>
+											<div class="table__cell table__cell_centered">Количество заявок *</div>
+											<div class="table__cell table__cell_centered">Сайт</div>
+										</div>
+									</div>
+								</div>
+								<div class="table__body mobile-slider">
+									<div class="table__row">
+										<div class="table__row-inner">
+											<!-- <div class="table__cell table__heading">Место</div> -->
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>1</span>
+											</div>
+											<!-- <div class="table__cell table__heading">Название патентного бюро / ФИО патентного поверенного</div> -->
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Патентное бюро «ЖЕЛЕЗНО»</span>
+											</div>
+											<!-- <div class="table__cell table__heading">Количество заявок *</div> -->
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>3 052 <span class="note">(3 099)</span></span>
+											</div>
+											<!-- <div class="table__cell table__heading">Сайт</div> -->
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">zhelezno.com</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>2</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «БизБренд»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 924 <span class="note">(3 759)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">biz-brand.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>3</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «ОНЛАЙН ПАТЕНТ»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 828 <span class="note">(2 868)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">onlinepatent.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>4</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ТАБЛИЦА 4 ТАБЛИЦА 4 ТАБЛИЦА 4</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>2 004 <span class="note">(2 017)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">gorodissky.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>5</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Дивизион»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 878 <span class="note">(1 941)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">hallmark.pro</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>6</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Патентус»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 818 <span class="note">(2 532)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">patentus.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>7</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «ФПБ Гардиум»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 332 <span class="note">(1 379)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">legal-support.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>8</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Лирейт»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 202 <span class="note">(1 233)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">lireate.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>9</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Центр защиты товарных знаков»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 181 <span class="note">(1 190)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">trademark-support.ru</span>
+											</div>
+										</div>
+									</div>
+									<div class="table__row">
+										<div class="table__row-inner">
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title">Место</span>
+												<span>10</span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Название патентного бюро / ФИО патентного поверенного</span>
+												<span>ООО «Башук Чичканов, юридическая фирма»</span>
+											</div>
+											<div class="table__cell table__cell_centered">
+												<span class="table__cell-title ">Количество заявок *</span>
+												<span>1 018 <span class="note">(1 036)</span></span>
+											</div>
+											<div class="table__cell">
+												<span class="table__cell-title">Сайт</span>
+												<span href="" class="link">bashukchichkanov.com</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<p class="table__footnote">
+									* — ТАБЛИЦА 4
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="text">
+					<p class="paragraph">
+						Примечания:
+					</p>
+					<ul class="list list_unordered">
+						<li class="list__item">
+							Информация для рейтинга взята из закрытых баз Роспатента.
+						</li>
+						<li class="list__item">
+							Роспатент дает для оплаты первой пошлины 2 месяца, поэтому небольшая разница между общим количеством поданных заявок и
+							количеством заявок без оплаты первой пошлины нормальна.
+						</li>
+						<li class="list__item">
+							НВ рейтинге учитываются все поданные заявки, а не только электронные. Следовательно, возможны некоторые расхождения с
+							данными из архивных рейтингов на сайте Роспатента.
+						</li>
+						<li class="list__item">
+							В рейтинге участвуют компании и патентные поверенные, которые оказывают платные услуги по регистрации различных объектов
+							интеллектуальной собственности. Юридические лица (крупные компании, НИИ, образовательные учреждения и т.п.),
+							самостоятельно подающие заявки в Роспатент, но не оказывающие платных услуг, в рейтинг не включаются.
+						</li>
+					</ul>
+					<p class="paragraph">
+						Архив:
+					</p>
+					<ul class="list list_unordered">
+						<li class="list__item">
+							<a href="" class="link">«Лидеры подачи заявок в Роспатент за 2022 год»</a>
+						</li>
+						<li class="list__item">
+							<a href="" class="link">«Лидеры подачи заявок в Роспатент за 1 полугодие 2022 года»</a>
+						</li>
+						<li class="list__item">
+							<a href="" class="link">«Лидеры подачи заявок в Роспатент за 2021 год»</a>
+						</li>
+						<li class="list__item">
+							<a href="" class="link">«Лидеры подачи заявок в Роспатент за 1 полугодие 2021 года»</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</header>
+
+	<main class="main">
+		<section class="section">
+			<div class="container">
+				<h2 class="title section-title">Что по количеству заявок сейчас</h2>
+				<p class="label">Данные актуальны. Последнее обновление&nbsp;- 03.05.2024</p>
+				
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer__container">
+			<div class="footer__inner">
+				<div class="logo footer__logo">
+					<div class="logo__image">Logo</div>
+					<p class="logo__text footer__logo-text">Независимый рейтинг патентных поверенных и бюро</p>
+				</div>
+				<div class="footer__menu">
+					<div class="footer__menu-item">
+						<p class="footer__title">Рейтинги</p>
+						<a href="" class="link footer__link">Топ патентных бюро</a>
+						<a href="" class="link footer__link">Лидеры подачи заявок</a>
+					</div>
+					<div class="footer__menu-item">
+						<p class="footer__title">О системе оценок</p>
+					</div>
+					<div class="footer__menu-item">
+						<p class="footer__title">Информация</p>
+						<a href="" class="link footer__link">Партнеры</a>
+						<a href="" class="link footer__link">Участникам рейтинга</a>
+						<a href="" class="link footer__link">Патентным поверенным</a>
+					</div>
+					<div class="footer__menu-item footer__menu-item_aligned-right">
+						<p class="footer__title">Контакты</p>
+						<a href="mailto:mail@ipra.com" class="link footer__link">mail@ipra.com</a>
+					</div>
+				</div>
+			</div>
+			<p class="copyright">
+				Сайт создан в интересах потребителей. Данные на сайте не являются рекламой и носят информационных характер.<br>
+				Копирование материалов допускается только с разрешения правообладателя.<br>
+				© Рейтинг ПП, 2021.
+			</p>
+		</div>
+	</footer>
+
+	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="styles/slick-slider.min.css" />
+
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/main.js"></script>
+	<script src="scripts/slick-slider.min.js"></script>
+
+</body>
+
+</html>
