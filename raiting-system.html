@@ -1,0 +1,316 @@
+<!-- <?php
+session_start();
+if (empty($_SESSION['time'])) {
+	$_SESSION['time'] = time();
+}
+$Month_r = array(
+	"01" => "января",
+	"02" => "февраля",
+	"03" => "марта",
+	"04" => "апреля",
+	"05" => "мая",
+	"06" => "июня",
+	"07" => "июля",
+	"08" => "августа",
+	"09" => "сентября",
+	"10" => "октября",
+	"11" => "ноября",
+	"12" => "декабря"
+);
+
+$date_current = explode(".", date("d.m", strtotime("+1 DAY")));
+$date_digits = date("d.m", strtotime("+1 DAY"));
+$rus_month = $Month_r[$date_current[1]];
+$rus_date = $date_current[0] . '&nbsp;' . $rus_month;
+$yr = date("Y");
+
+if (array_key_exists('url', $_SESSION) && !empty($_SESSION['url'])) {
+	$url = $_SESSION['url'];
+} else {
+	$url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	$_SESSION['url'] = $url;
+}
+
+$utm_source = isset($_GET['utm_source']) ? $_GET['utm_source'] : null;
+
+// Backgrounds
+$webp = 'img';
+if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
+	$webp = 'webp';
+}
+
+function LastModified($file = '')
+{
+	if (empty($file)) {
+		$file = __FILE__;
+	}
+
+	if (!file_exists($file)) {
+		return;
+	}
+	$LastModified_unix = strtotime(date("D, d M Y H:i:s", filectime($file)));
+	$LastModified = gmdate("D, d M Y H:i:s \G\M\T", $LastModified_unix);
+	$IfModifiedSince = false;
+	if (isset($_ENV['HTTP_IF_MODIFIED_SINCE'])) {
+		$IfModifiedSince = strtotime(substr($_ENV['HTTP_IF_MODIFIED_SINCE'], 5));
+	}
+	if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
+		$IfModifiedSince = strtotime(substr($_SERVER['HTTP_IF_MODIFIED_SINCE'], 5));
+	}
+	if ($IfModifiedSince && $IfModifiedSince >= $LastModified_unix) {
+		header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
+		exit;
+	}
+	header('Last-Modified: ' . $LastModified);
+}
+LastModified();
+
+function forPageSpeed(): bool
+{
+	return (stripos(@$_SERVER['HTTP_USER_AGENT'], 'Lighthouse') !== false);
+}
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/includes/common.php';
+
+$title = "";
+$description = "";
+$keywords = "";
+$og_title = "";
+$og_description = "";
+$schema_description = "";
+$h1 = "";
+
+foreach ([
+	'title', 'description', 'keywords', 'og_title', 'og_description', 'schema_description', 'h1'
+] as $var_name) {
+	if ($app->getVar($var_name)) {
+		${$var_name} = $app->getVar($var_name);
+	}
+}
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title><?= $title ?></title>
+	<meta name="description" content="<?= $description ?>" />
+	<meta name="keywords" content="<?= $keywords ?>" />
+	<link href="<?= $app->urlRelCanonical() ?>" rel="canonical" />
+
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Международная классификация товаров и услуг">
+	<meta property="og:url" content="https://mktu.net/">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:image" content="">
+	<meta property="og:title" content="<?= $og_title ?>">
+	<meta property="og:description" content="<?= $og_description ?>">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<link rel="preload" href="styles/fonts/Rubik-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="styles/fonts/Rubik-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="styles/fonts/Rubik-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="styles/critical.css">
+
+</head>
+
+<body>
+
+	<header class="header">
+		<div class="header__top">
+			<div class="container header__top-container">
+				<div class="logo header__logo">
+					<div class="logo__image">Logo</div>
+					<p class="logo__text header__logo-text">Независимый рейтинг патентных поверенных и бюро</p>
+				</div>
+				<nav class="menu">
+					<ul class="menu__list">
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">Главная</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">Рейтинги</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">О нас</a>
+						</li>
+						<li class="menu__list-item menu__list-item_active">
+							<a href="" class="menu__list-link">О системе оценок</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__search-form">
+					<form action="" class="search-form">
+						<input class="input search-form__input" data-action="" type="text" placeholder="Что будем искать?" autocomplete="off">
+						<button class="search-form__button"></button>
+					</form>
+				</div>
+				<div class="burger-menu">
+					<span class="burger-menu__line"></span>
+					<span class="burger-menu__line"></span>
+					<span class="burger-menu__line"></span>
+				</div>
+			</div>
+		</div>
+		<section class="section section_bg-light">
+			<div class="container header__main-container">
+				<div class="breadcrumbs header__breadcrumbs">
+					<div class="breadcrumb">
+						<a class="link breadcrumb__link" href="/">Рейтинг IPRA</a>
+						<span class="breadcrumb__separator">></span>
+					</div>
+					<div class="breadcrumb">О системе оценок</div>
+				</div>
+				<h1 class="title section-title">О системе оценок IPRA</h1>
+				<div class="text text_decorated">
+					<p class="paragraph">
+						Мы создали рейтинг IPRA c целью помочь потребителю ориентироваться в сфере интеллектуальной собственности.
+						 Для этого была разработана уникальная система оценок IPRA, учитывающая 100500 показателей, и проанализирована
+						  работа 100500 компаний, предоставляющих соответствующие услуги.
+					</p>
+					<p class="paragraph">
+						Мы стремимся создать объективный рейтинг, поэтому сделали список критериев, по которому оценивали патентные бюро,
+						открытым. Вы можете найти его ниже.
+					</p>
+					<p class="paragraph">
+						Если мы не учли какой-то важный параметр, или у вас есть идея о том, как улучшить систему оценок,
+						 <a href="" class="link">заполните форму</a>. Бу-бу-бу, какой-то вводный текст.
+					</p>
+				</div>
+			</div>
+		</section>
+	</header>
+
+	<main class="main">
+		<section class="section">
+			<div class="container">
+				<p class="title section-title">Критерии оценки</p>
+				<div class="text">
+					<p class="paragraph">
+						<b>1. Патентный поверенный в штате</b>
+					</p>
+					<p class="paragraph">
+						Чтобы получить статус патентного поверенного, специалист должен проработать в сфере интеллектуальной собственности не
+						менее 4 лет, а также сдать экзамен в Роспатенте. Если в компании работает такой специалист, значит ваша заявка в руках
+						настоящего профессионала, а не вчерашнего дворника, который вдруг решил, что регистрировать товарные знаки и изобретения
+						веселее и выгоднее, чем махать метлой.
+					</p>
+					<p class="paragraph">
+						<b>2. В компании 3 и более патентных поверенных</b>
+					</p>
+					<p class="paragraph">
+						Является гарантией того, что в случае отпуска, увольнения, больничного и каких-либо форс-мажорных обстоятельств у одного
+						патентного поверенного, ваша заявка не останется без внимания. В компании есть другие высококлассные специалисты,
+						которые продолжат работу с ней.
+					</p>
+					<p class="paragraph">
+						<b>3. Компания существует более 5 лет</b>
+					</p>
+					<p class="paragraph">
+						Данные берутся по реквизитам из Руспрофиля. Раз компания существует более 5 лет, это уже точно не фирма-однодневка. С
+						ней можно работать, риски минимальны.
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="section">
+			<div class="container container_pt-0">
+				<div class="form-wrapper">
+					<div class="form-heading">
+						<span class="icon icon-bulb form__icon <?= $webp ?>"></span>
+						<p class="title section-title form__title">Есть идея по улучшению IPRA?</p>
+					</div>
+					<form class="form" action="">
+						<div class="hide"><input type="text" name="name_family" placeholder="Ваше имя фамилия"></div>
+						<input type="hidden" name="title" value="">
+						<div class="form__inner">
+							<div class="form__section">
+								<textarea class="textarea" name="" id="" placeholder="Опишите вашу идею"></textarea>
+							</div>
+							<div class="form__section">
+								<p class="form__text">Данные необходимы для обратной связи и не будут опубликованы:</p>
+								<label class="input-wrapper" for="">
+									<input class="input" type="text" placeholder="Ваше имя">
+								</label>
+								<label class="input-wrapper" for="">
+									<input class="input" type="email" placeholder="Ваш email">
+								</label>
+								<div class="custom-select">
+									<span class="custom-select__text">Патентный поверенный</span>
+									<div class="custom-select__icon">
+										<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M6 8L11.1962 0.5H0.803848L6 8Z" fill="#d13030" />
+										</svg>
+									</div>
+									<div class="custom-select__dropdown">
+										<div class="custom-select__option" data-value="">Патентный поверенный</div>
+										<div class="custom-select__option" data-value="">Опция 2</div>
+										<div class="custom-select__option" data-value="">Опция 3</div>
+									</div>
+								</div>
+								<div class="button button_dark form__button">
+									<input class="submit-button" type="submit" value="Отправить">
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer__container">
+			<div class="footer__inner">
+				<div class="logo footer__logo">
+					<div class="logo__image">Logo</div>
+					<p class="logo__text footer__logo-text">Независимый рейтинг патентных поверенных и бюро</p>
+				</div>
+				<div class="footer__menu">
+					<div class="footer__menu-item">
+						<p class="footer__title">Рейтинги</p>
+						<a href="" class="link footer__link">Топ патентных бюро</a>
+						<a href="" class="link footer__link">Лидеры подачи заявок</a>
+					</div>
+					<div class="footer__menu-item">
+						<p class="footer__title">О системе оценок</p>
+					</div>
+					<div class="footer__menu-item">
+						<p class="footer__title">Информация</p>
+						<a href="" class="link footer__link">Партнеры</a>
+						<a href="" class="link footer__link">Участникам рейтинга</a>
+						<a href="" class="link footer__link">Патентным поверенным</a>
+					</div>
+					<div class="footer__menu-item footer__menu-item_aligned-right">
+						<p class="footer__title">Контакты</p>
+						<a href="mailto:mail@ipra.com" class="link footer__link">mail@ipra.com</a>
+					</div>
+				</div>
+			</div>
+			<p class="copyright">
+				Сайт создан в интересах потребителей. Данные на сайте не являются рекламой и носят информационных характер.<br>
+				Копирование материалов допускается только с разрешения правообладателя.<br>
+				© Рейтинг ПП, 2021.
+			</p>
+		</div>
+	</footer>
+
+	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="styles/slick-slider.min.css" />
+
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/main.js"></script>
+	<script src="scripts/slick-slider.min.js"></script>
+
+</body>
+
+</html>

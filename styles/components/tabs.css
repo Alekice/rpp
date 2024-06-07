@@ -7,6 +7,8 @@
 .tabs__nav-btn {
 	border: none;
 	outline: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	background-color: var(--dark-color);
 	color: var(--light-color);

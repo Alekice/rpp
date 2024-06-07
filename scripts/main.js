@@ -75,6 +75,32 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.custom-select').on(clickEvent, function (e) {
+		let dropdown = $(this).find('.custom-select__dropdown');
+		let icon = $(this).find('.custom-select__icon');
+
+		if (dropdown.hasClass('open')) {
+			icon.removeClass('open');
+			dropdown.removeClass('open');
+			dropdown.css('height', 0);
+		} else {
+			icon.addClass('open');
+			dropdown.addClass('open');
+			let itemsCount = $(this).find('.custom-select__option').length;
+			let height = 48 * itemsCount;
+			dropdown.css('height', height);
+		}
+
+		if ($(e.target).hasClass('custom-select__option')) {
+			let formId = $(e.target).data('value');
+			let text = $(e.target).text();
+			$(e.target).closest('.form').find('input[name="title"]').attr('value', formId);
+			$(e.target).closest('.form').find('.custom-select__text').text(text);
+		}
+
+		return false;
+	});
+
 });
 
 function init_table_slider() {

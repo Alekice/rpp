@@ -69,6 +69,8 @@
 		-webkit-justify-content: space-between;
 		justify-content: space-between;
 		box-shadow: 0 0px 3px 0 var(--box-shadow-color);
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
 		border-radius: 5px;
 		cursor: pointer;
 	}

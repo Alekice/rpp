@@ -1,0 +1,251 @@
+.form-wrapper {
+	border: 3px solid var(--primary-color);
+}
+
+.form-heading {
+	background-color: var(--primary-color);
+	color: var(--light-color);
+	padding: 10px 20px;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.form__icon {
+	width: 80px;
+	height: 80px;
+	margin-right: 20px;
+	flex-shrink: 0;
+}
+
+.form__title {
+	margin: 0;
+}
+
+.form {
+	padding: 20px;
+}
+
+.form__inner {
+	display: grid;
+	grid-template-columns: 57% 39%;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+
+.form__section {
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+
+.textarea {
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border: 2px solid var(--dark-color);
+	padding: 20px;
+	color: var(--dark-color);
+	font-family: inherit;
+	font-size: 16px;
+}
+
+.textarea::placeholder {
+	color: var(--dark-color);
+	font-family: inherit;
+	font-size: 16px;
+}
+
+.form__text {
+	color: var(--dark-color);
+	margin-bottom: 12px;
+}
+
+.input-wrapper {
+	width: 100%;
+	height: 50px;
+}
+
+.input-wrapper + .input-wrapper,
+.input-wrapper + .custom-select,
+.custom-select + .input-wrapper {
+	margin-top: 12px;
+}
+
+.input {
+	width: 100%;
+	height: 100%;
+	padding: 15px 20px;
+	outline: none;
+	border: 2px solid var(--dark-color);
+	color: var(--dark-color);
+	font-family: inherit;
+	font-size: 16px;
+}
+
+.input::placeholder {
+	color: var(--dark-color);
+	font-family: inherit;
+	font-size: 16px;
+}
+
+.custom-select {
+	width: 100%;
+	font-family: inherit;
+	color: inherit;
+	font-size: inherit;
+	line-height: 1;
+	border: 2px solid var(--dark-color);
+	outline: none;
+	height: 50px;
+	background-color: var(--light-color);
+	padding: 15px 20px;
+	cursor: pointer;
+	position: relative;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.custom-select__icon {
+	width: 18px;
+	height: 100%;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+	position: absolute;
+	right: 12px;
+	top: 0;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-o-user-select: none;
+	pointer-events: none;
+	transition: .3s;
+}
+
+.custom-select__icon.open {
+	transform: rotateX(-180deg);
+}
+
+.custom-select__dropdown {
+	position: absolute;
+	top: 46px;
+	left: -2px;
+	width: calc(100% + 4px);
+	height: 0;
+	border: 2px solid transparent;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	overflow: hidden;
+	background-color: var(--light-color);
+	transition: .3s;
+	opacity: 0;
+	pointer-events: none;
+	z-index: 5;
+}
+
+.custom-select__dropdown.open {
+	border-color: var(--darl-color);
+	opacity: 1;
+	pointer-events: all;
+}
+
+.custom-select__option {
+	line-height: 1;
+	width: 100%;
+	height: 50px;
+	padding: 15px 20px;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	transition: .3s ease-in-out;
+}
+
+.custom-select__option:hover {
+	padding-left: 30px;
+}
+
+.custom-select__option + .custom-select__option {
+	border-top: 1px solid rgba(141, 141, 141, 0.5);
+}
+
+.form__button {
+	max-width: 100%;
+	margin-top: 20px;
+}
+
+.submit-button {
+	background-color: transparent;
+	outline: none;
+	border: none;
+	width: 100%;
+	height: 100%;
+	font-family: inherit;
+	font-size: 17px;
+	line-height: 17px;
+	font-weight: 700;
+	text-align: center;
+	color: var(--light-color);
+	cursor: pointer;
+	position: relative;
+	z-index: 3;
+}
+
+@media (max-width: 1279px) {
+
+	.form__inner {
+		grid-template-columns: 55% 41%;
+	}
+
+}
+
+@media (max-width: 979px) {
+
+	.form__inner {
+		grid-template-columns: 48% 48%;
+	}
+
+}
+
+@media (max-width: 979px) {
+
+	.form__inner {
+		grid-template-columns: 1fr;
+	}
+
+	.textarea {
+		min-height: 150px;
+	}
+
+	.form__section + .form__section {
+		margin-top: 30px;
+	}
+
+}
+
+@media (max-width: 479px) {
+
+	.form-heading {
+		padding: 10px;
+	}
+
+	.form__icon {
+		width: 60px;
+		height: 60px;
+		margin-right: 15px;
+	}
+
+	.form {
+		padding: 10px;
+	}
+
+	.form__section + .form__section {
+        margin-top: 20px;
+    }
+
+}

@@ -3,6 +3,8 @@
 @import "./components/raiting.css";
 @import "./components/tiles.css";
 @import "./components/tabs.css";
+@import "./components/icons.css";
+@import "./components/form.css";
 
 @import "./blocks/check-list.css";
 @import "./blocks/award.css";
