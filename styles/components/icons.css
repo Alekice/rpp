@@ -12,3 +12,12 @@
 .icon-bulb.webp {
 	background-image: url(../../images/icons/bulb.webp);
 }
+
+.icon-list,
+.icon-list.img {
+	background-image: url(../../images/icons/list.png);
+}
+
+.icon-list.webp {
+	background-image: url(../../images/icons/list.webp);
+}

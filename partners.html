@@ -143,7 +143,7 @@ foreach ([
 						<li class="menu__list-item">
 							<a href="/#about" class="menu__list-link">О нас</a>
 						</li>
-						<li class="menu__list-item menu__list-item_active">
+						<li class="menu__list-item">
 							<a href="/raiting-system.html" class="menu__list-link">О системе оценок</a>
 						</li>
 					</ul>
@@ -168,22 +168,22 @@ foreach ([
 						<a class="link breadcrumb__link" href="/">Рейтинг IPRA</a>
 						<span class="breadcrumb__separator">></span>
 					</div>
-					<div class="breadcrumb">О системе оценок</div>
+					<div class="breadcrumb">Партнёрам</div>
 				</div>
-				<h1 class="title section-title">О системе оценок IPRA</h1>
+				<h1 class="title section-title">Информация для партнёров</h1>
 				<div class="text text_decorated">
 					<p class="paragraph">
-						Мы создали рейтинг IPRA c целью помочь потребителю ориентироваться в сфере интеллектуальной собственности.
-						 Для этого была разработана уникальная система оценок IPRA, учитывающая 100500 показателей, и проанализирована
-						  работа 100500 компаний, предоставляющих соответствующие услуги.
+						С радостью представляем вам наш независимый рейтинг патентных бюро, основанный на прозрачной системе оценок,
+						разработанной нашей командой экспертов. Мы стремимся к объективности и достоверности результатов, чтобы предоставить
+						аудитории достоверную информацию о лучших патентных бюро.
 					</p>
 					<p class="paragraph">
-						Мы стремимся создать объективный рейтинг, поэтому сделали список критериев, по которому оценивали патентные бюро,
-						открытым. Вы можете найти его ниже.
+						Мы готовы к сотрудничеству и приветствуем предложения о доработке и улучшении нашей системы оценок. Будем рады
+						информационной поддержке вашей компании и предлагаем разместить ваш логотип и ссылку на сайт на главной странице нашего
+						рейтинга. Обратите внимание, что у нас нет рекламы на сайте, и наш приоритет - качество и объективность данных.
 					</p>
 					<p class="paragraph">
-						Если мы не учли какой-то важный параметр, или у вас есть идея о том, как улучшить систему оценок,
-						 <a href="" class="link">заполните форму</a>. Бу-бу-бу, какой-то вводный текст.
+						Свои идеи и предложения можно направить нам <a href="" class="link">через форму</a>. Бу-бу-бу, какой-то вводный текст. Этот писал Chat GPT.
 					</p>
 				</div>
 			</div>
@@ -193,48 +193,17 @@ foreach ([
 	<main class="main">
 		<section class="section">
 			<div class="container">
-				<p class="title section-title">Критерии оценки</p>
-				<div class="text">
-					<p class="paragraph">
-						<b>1. Патентный поверенный в штате</b>
-					</p>
-					<p class="paragraph">
-						Чтобы получить статус патентного поверенного, специалист должен проработать в сфере интеллектуальной собственности не
-						менее 4 лет, а также сдать экзамен в Роспатенте. Если в компании работает такой специалист, значит ваша заявка в руках
-						настоящего профессионала, а не вчерашнего дворника, который вдруг решил, что регистрировать товарные знаки и изобретения
-						веселее и выгоднее, чем махать метлой.
-					</p>
-					<p class="paragraph">
-						<b>2. В компании 3 и более патентных поверенных</b>
-					</p>
-					<p class="paragraph">
-						Является гарантией того, что в случае отпуска, увольнения, больничного и каких-либо форс-мажорных обстоятельств у одного
-						патентного поверенного, ваша заявка не останется без внимания. В компании есть другие высококлассные специалисты,
-						которые продолжат работу с ней.
-					</p>
-					<p class="paragraph">
-						<b>3. Компания существует более 5 лет</b>
-					</p>
-					<p class="paragraph">
-						Данные берутся по реквизитам из Руспрофиля. Раз компания существует более 5 лет, это уже точно не фирма-однодневка. С
-						ней можно работать, риски минимальны.
-					</p>
-				</div>
-			</div>
-		</section>
-		<section class="section">
-			<div class="container container_pt-0">
 				<div class="form-wrapper">
 					<div class="form-heading">
-						<span class="icon icon-bulb form__icon <?= $webp ?>"></span>
-						<p class="title section-title form__title">Есть идея по улучшению IPRA?</p>
+						<span class="icon icon-list form__icon <?= $webp ?>"></span>
+						<p class="title section-title form__title">Предложения о сотрудничестве</p>
 					</div>
 					<form class="form" action="">
 						<div class="hide"><input type="text" name="name_family" placeholder="Ваше имя фамилия"></div>
 						<input type="hidden" name="title" value="">
 						<div class="form__inner">
 							<div class="form__section">
-								<textarea class="textarea" name="" id="" placeholder="Опишите вашу идею"></textarea>
+								<textarea class="textarea" name="" id="" placeholder="Ваше предложение"></textarea>
 							</div>
 							<div class="form__section">
 								<p class="form__text">Данные необходимы для обратной связи и не будут опубликованы:</p>
@@ -244,19 +213,6 @@ foreach ([
 								<label class="input-wrapper" for="">
 									<input class="input" type="email" placeholder="Ваш email">
 								</label>
-								<div class="custom-select">
-									<span class="custom-select__text">Патентный поверенный</span>
-									<div class="custom-select__icon">
-										<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M6 8L11.1962 0.5H0.803848L6 8Z" fill="#d13030" />
-										</svg>
-									</div>
-									<div class="custom-select__dropdown">
-										<div class="custom-select__option" data-value="">Патентный поверенный</div>
-										<div class="custom-select__option" data-value="">Опция 2</div>
-										<div class="custom-select__option" data-value="">Опция 3</div>
-									</div>
-								</div>
 								<div class="button button_dark form__button">
 									<input class="submit-button" type="submit" value="Отправить">
 								</div>
