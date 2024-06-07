@@ -1,0 +1,432 @@
+<!-- <?php
+session_start();
+if (empty($_SESSION['time'])) {
+	$_SESSION['time'] = time();
+}
+$Month_r = array(
+	"01" => "января",
+	"02" => "февраля",
+	"03" => "марта",
+	"04" => "апреля",
+	"05" => "мая",
+	"06" => "июня",
+	"07" => "июля",
+	"08" => "августа",
+	"09" => "сентября",
+	"10" => "октября",
+	"11" => "ноября",
+	"12" => "декабря"
+);
+
+$date_current = explode(".", date("d.m", strtotime("+1 DAY")));
+$date_digits = date("d.m", strtotime("+1 DAY"));
+$rus_month = $Month_r[$date_current[1]];
+$rus_date = $date_current[0] . '&nbsp;' . $rus_month;
+$yr = date("Y");
+
+if (array_key_exists('url', $_SESSION) && !empty($_SESSION['url'])) {
+	$url = $_SESSION['url'];
+} else {
+	$url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	$_SESSION['url'] = $url;
+}
+
+$utm_source = isset($_GET['utm_source']) ? $_GET['utm_source'] : null;
+
+// Backgrounds
+$webp = 'img';
+if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
+	$webp = 'webp';
+}
+
+function LastModified($file = '')
+{
+	if (empty($file)) {
+		$file = __FILE__;
+	}
+
+	if (!file_exists($file)) {
+		return;
+	}
+	$LastModified_unix = strtotime(date("D, d M Y H:i:s", filectime($file)));
+	$LastModified = gmdate("D, d M Y H:i:s \G\M\T", $LastModified_unix);
+	$IfModifiedSince = false;
+	if (isset($_ENV['HTTP_IF_MODIFIED_SINCE'])) {
+		$IfModifiedSince = strtotime(substr($_ENV['HTTP_IF_MODIFIED_SINCE'], 5));
+	}
+	if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
+		$IfModifiedSince = strtotime(substr($_SERVER['HTTP_IF_MODIFIED_SINCE'], 5));
+	}
+	if ($IfModifiedSince && $IfModifiedSince >= $LastModified_unix) {
+		header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
+		exit;
+	}
+	header('Last-Modified: ' . $LastModified);
+}
+LastModified();
+
+function forPageSpeed(): bool
+{
+	return (stripos(@$_SERVER['HTTP_USER_AGENT'], 'Lighthouse') !== false);
+}
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/includes/common.php';
+
+$title = "";
+$description = "";
+$keywords = "";
+$og_title = "";
+$og_description = "";
+$schema_description = "";
+$h1 = "";
+
+foreach ([
+	'title', 'description', 'keywords', 'og_title', 'og_description', 'schema_description', 'h1'
+] as $var_name) {
+	if ($app->getVar($var_name)) {
+		${$var_name} = $app->getVar($var_name);
+	}
+}
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title><?= $title ?></title>
+	<meta name="description" content="<?= $description ?>" />
+	<meta name="keywords" content="<?= $keywords ?>" />
+	<link href="<?= $app->urlRelCanonical() ?>" rel="canonical" />
+
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Международная классификация товаров и услуг">
+	<meta property="og:url" content="https://mktu.net/">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:image" content="">
+	<meta property="og:title" content="<?= $og_title ?>">
+	<meta property="og:description" content="<?= $og_description ?>">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<link rel="preload" href="styles/fonts/Rubik-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="styles/fonts/Rubik-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="styles/fonts/Rubik-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="styles/critical.css">
+
+</head>
+
+<body>
+
+	<header class="header">
+		<div class="header__top">
+			<div class="container header__top-container">
+				<div class="logo header__logo">
+					<div class="logo__image">Logo</div>
+					<p class="logo__text header__logo-text">Независимый рейтинг патентных поверенных и бюро</p>
+				</div>
+				<nav class="menu">
+					<ul class="menu__list">
+						<li class="menu__list-item">
+							<a href="/" class="menu__list-link">Главная</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="" class="menu__list-link">Рейтинги</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="/#about" class="menu__list-link">О нас</a>
+						</li>
+						<li class="menu__list-item">
+							<a href="/raiting-system.html" class="menu__list-link">О системе оценок</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__search-form">
+					<form action="" class="search-form">
+						<input class="search-form__input" data-action="" type="text" placeholder="Что будем искать?" autocomplete="off">
+						<button class="search-form__button"></button>
+					</form>
+				</div>
+				<div class="burger-menu">
+					<span class="burger-menu__line"></span>
+					<span class="burger-menu__line"></span>
+					<span class="burger-menu__line"></span>
+				</div>
+			</div>
+		</div>
+		<section class="section section_bg-light">
+			<div class="container header__main-container">
+				<div class="breadcrumbs header__breadcrumbs">
+					<div class="breadcrumb">
+						<a class="link breadcrumb__link" href="/">Рейтинг IPRA</a>
+						<span class="breadcrumb__separator">></span>
+					</div>
+					<div class="breadcrumb">Перечень патентных бюро</div>
+				</div>
+				<h1 class="title section-title">Полный перечень патентных бюро</h1>
+				<div class="text text_decorated">
+					<p class="paragraph">
+						Ниже представлен полный перечень компаний, которые занимаются регистрацией объектов
+						 интеллектуальной собственности на коммерческой основе.
+					</p>
+					<p class="paragraph">
+						Для вашего удобства мы предусмотрели несколько вариантов сортировок: вы можете упорядочить
+						 компании по названию или по рейтингу IPRA, а также воспользоваться поиском.
+					</p>
+				</div>
+			</div>
+		</section>
+	</header>
+
+	<main class="main">
+		<section class="section section_bg-light">
+			<div class="container container_pt-0">
+				<!-- <p class="title section-title">Поиск компании по названию, руководителю, ИНН или ОГРН</p> -->
+				<div class="all-pa__search-form">
+					<form action="" class="search-form">
+						<input class="search-form__input" data-action="" type="text" placeholder="Нужен короткий плейсхолдер" autocomplete="off">
+						<button class="search-form__button"></button>
+					</form>
+				</div>
+				<p class="subtitle all-pa__subtitle">Всего организаций в перечне: 100500</p>
+				<div class="cards">
+					<div class="cards__nav">
+						<span class="cards__nav-text">Сортировать по:</span>
+						<button class="cards__nav-btn active" type="button" data-sort="score">Рейтингу IRPA</button>
+						<button class="cards__nav-btn" type="button" data-sort="name">Названию</button>
+					</div>
+					<div class="cards__content">
+						<div class="cards__item">
+							<p>ООО «Патентное бюро «ЖЕЛЕЗНО» (<a href="" class="link">zhelezno.com</a>)</p>
+							<div class="raiting cards__raiting">
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+							</div>
+						</div>
+						<div class="cards__item">
+							<p>ООО «БизБренд» (<a href="" class="link">biz-brand.ru</a>)</p>
+							<div class="raiting cards__raiting">
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+							</div>
+						</div>
+						<div class="cards__item">
+							<p>ООО «ОНЛАЙН ПАТЕНТ» (<a href="" class="link">onlinepatent.ru</a>)</p>
+							<div class="raiting cards__raiting">
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+							</div>
+						</div>
+						<div class="cards__item">
+							<p>Юридическая фирма «Городисский и партнеры» (<a href="" class="link">gorodissky.ru</a>)</p>
+							<div class="raiting cards__raiting">
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+							</div>
+						</div>
+						<div class="cards__item">
+							<p>ООО «Дивизион» (<a href="" class="link">hallmark.pro</a>)</p>
+							<div class="raiting cards__raiting">
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+							</div>
+						</div>
+						<div class="cards__item">
+							<p>ООО «Патентус» (<a href="" class="link">patentus.ru</a>)</p>
+							<div class="raiting cards__raiting">
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+							</div>
+						</div>
+						<div class="cards__item">
+							<p>ООО «ФПБ Гардиум» (<a href="" class="link">legal-support.ru</a>)</p>
+							<div class="raiting cards__raiting">
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+							</div>
+						</div>
+						<div class="cards__item">
+							<p>ООО «Лирейт» (<a href="" class="link">lireate.ru</a>)</p>
+							<div class="raiting cards__raiting">
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+							</div>
+						</div>
+						<div class="cards__item">
+							<p>ООО «Центр защиты товарных знаков» (<a href="" class="link">trademark-support.ru</a>)</p>
+							<div class="raiting cards__raiting">
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+							</div>
+						</div>
+						<div class="cards__item">
+							<p>ООО «Башук Чичканов, юридическая фирма» (<a href="" class="link">bashukchichkanov.com</a>)</p>
+							<div class="raiting cards__raiting">
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+								<span class="star star_empty <?= $webp ?>"></span>
+							</div>
+						</div>
+					</div>
+					<button href="" class="button button_dark cards__button">Показать еще</button>
+				</div>
+			</div>
+		</section>
+		<section class="section section_bg-dark">
+			<div class="container check-list__container <?= $webp?>">
+				<h2 class="title section-title">
+					<span class="title__highlight">Чек-лист договора с патентным бюро</span>&nbsp;—
+					скачайте БЕСПЛАТНО!
+				</h2>
+				<div class="text">
+					<p class="paragraph">
+						Наши эксперты подготовили для вас <b>специальный чек-лист</b>, с помощью которого вы не попадетесь на
+						популярные уловки
+						недобросовестных патентных бюро или поверенных, и <b>заключенный договор будет максимально защищать ваши
+							интересы</b>.
+					</p>
+					<p class="paragraph check-list__paragraph">
+						На какой счет оплачиваются государственные пошлины, какие сроки регистрации считаются адекватными, как
+						должна быть
+						прописана гарантия на услуги — это и многое другое вы узнаете из подготовленного документа.
+					</p>
+				</div>
+				<a href="" class="button button_light">Скачать чек-лист</a>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer__container">
+			<div class="footer__inner">
+				<div class="logo footer__logo">
+					<div class="logo__image">Logo</div>
+					<p class="logo__text footer__logo-text">Независимый рейтинг патентных поверенных и бюро</p>
+				</div>
+				<div class="footer__menu">
+					<div class="footer__menu-item">
+						<p class="footer__title">Рейтинги</p>
+						<a href="" class="link footer__link">Топ патентных бюро</a>
+						<a href="./top.html" class="link footer__link">Лидеры подачи заявок</a>
+					</div>
+					<div class="footer__menu-item">
+						<a class="footer__title footer__link" href="./raiting-system.html">О системе оценок</p>
+					</div>
+					<div class="footer__menu-item">
+						<p class="footer__title">Информация</p>
+						<a href="./partners.html" class="link footer__link">Партнерам</a>
+						<a href="" class="link footer__link">Участникам рейтинга</a>
+						<a href="" class="link footer__link">Патентным поверенным</a>
+					</div>
+					<div class="footer__menu-item footer__menu-item_aligned-right">
+						<p class="footer__title">Контакты</p>
+						<a href="mailto:mail@ipra.com" class="link footer__link">mail@ipra.com</a>
+					</div>
+				</div>
+			</div>
+			<p class="copyright">
+				Сайт создан в интересах потребителей. Данные на сайте не являются рекламой и носят информационных характер.<br>
+				Копирование материалов допускается только с разрешения правообладателя.<br>
+				© Рейтинг ПП, 2021.
+			</p>
+		</div>
+	</footer>
+
+	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="styles/slick-slider.min.css" />
+
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/main.js"></script>
+	<script src="scripts/slick-slider.min.js"></script>
+	<script src="scripts/zingchart.min.js"></script>
+	<script src="scripts/chart.js"></script>
+
+</body>
+
+</html>

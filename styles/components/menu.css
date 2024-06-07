@@ -80,6 +80,7 @@
 		height: 3px;
 		background-color: var(--primary-color);
 		transition: .3s ease-in-out;
+		pointer-events: none;
 	}
 
 	.burger-menu_active .burger-menu__line:nth-of-type(1) {

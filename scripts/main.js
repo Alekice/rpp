@@ -20,7 +20,6 @@ $(document).ready(function() {
 			menu.addClass("menu_active");
 		}
 		$(this).toggleClass("burger-menu_active");
-		menu
 	});
 
 	if (document.documentElement.clientWidth < 768) {
