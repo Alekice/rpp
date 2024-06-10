@@ -39,6 +39,10 @@
 	margin-right: auto;
 }
 
+.header__main-container_buro {
+	padding-bottom: 0;
+}
+
 @media (max-width: 1279px) {
 
 	.header__label {

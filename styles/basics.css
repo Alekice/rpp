@@ -149,6 +149,10 @@ img {
 	padding-left: 20px;
 }
 
+.list__item + .list__item {
+	margin-top: 6px;
+}
+
 .link {
 	color: var(--secondary-color);
 	text-decoration: underline;
