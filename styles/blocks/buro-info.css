@@ -5,6 +5,10 @@
 	justify-content: space-between;
 }
 
+.buro-info__aside+.buro-info__main {
+	margin-top: -40px;
+}
+
 .buro-info__card {
 	background-color: var(--light-color);
 	box-shadow: 0 5px 10px 0 var(--box-shadow-color);
@@ -121,10 +125,6 @@
 	margin-right: 6px;
 }
 
-.buro-info__feedback {
-	margin-top: 40px;
-}
-
 .buro-info__consult {
 	border: 3px solid var(--background-color-dark);
 	margin-top: 80px;
@@ -167,7 +167,8 @@
 		grid-template-columns: 1fr;
 	}
 
-	.buro-info__main + .buro-info__aside {
+	.buro-info__main + .buro-info__aside,
+	.buro-info__aside + .buro-info__main {
 		margin-top: 20px;
 	}
 
