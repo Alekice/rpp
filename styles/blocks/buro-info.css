@@ -121,6 +121,38 @@
 	margin-right: 6px;
 }
 
+.buro-info__feedback {
+	margin-top: 40px;
+}
+
+.buro-info__consult {
+	border: 3px solid var(--background-color-dark);
+	margin-top: 80px;
+}
+
+.buro-info__consult-title {
+	font-size: 19px;
+	font-weight: 500;
+	color: var(--background-color-dark);
+	margin-bottom: 6px;
+}
+
+.buro-info__consult-button {
+	background-color: var(--background-color-dark);
+	margin-top: 20px;
+	margin-left: auto;
+}
+
+.buro-info__consult-button::before {
+	border-top: 1px solid var(--background-color-dark);
+	border-left: 1px solid var(--background-color-dark);
+}
+
+.buro-info__consult-button::after {
+	border-bottom: 1px solid var(--background-color-dark);
+	border-right: 1px solid var(--background-color-dark);
+}
+
 @media (max-width: 1279px) {
 
 	.buro-info {
@@ -137,6 +169,10 @@
 
 	.buro-info__main + .buro-info__aside {
 		margin-top: 20px;
+	}
+
+	.buro-info__consult {
+		margin-top: 60px;
 	}
 
 }
@@ -173,6 +209,10 @@
 	.buro-info__tabs-nav {
 		-webkit-flex-wrap: wrap;
 		flex-wrap: wrap;
+	}
+
+	.buro-info__consult {
+		margin-top: 40px;
 	}
 
 }
