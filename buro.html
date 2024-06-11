@@ -380,7 +380,7 @@ foreach ([
 								<p class="buro-info__card-title">
 									Еще <span class="title__highlight">1539</span> компаний в&nbsp;независимом рейтинге IRPA
 								</p>
-								<a href="" class="button button_light buro-info__card-button">Смотреть рейтинг</a>
+								<a href="/all-pa.html" class="button button_light buro-info__card-button">Смотреть рейтинг</a>
 							</div>
 						</div>
 						<div class="buro-info__card buro-info__card_with-border">
@@ -500,7 +500,7 @@ foreach ([
 									внесем необходимые
 									изменения.
 								</p>
-								<a href="" class="button buro-info__consult-button">Заполнить форму</a>
+								<a href="#consult-modal" class="button buro-info__consult-button fancybox">Заполнить форму</a>
 							</div>
 						</div>
 					</div>
@@ -567,11 +567,40 @@ foreach ([
 		</div>
 	</footer>
 
+	<div class="popup" id="consult-modal">
+		<div class="form-heading">
+			<p class="title popup__title form__title">Сообщите нам об ошибке</p>
+		</div>
+		<form class="form" action="">
+			<div class="hide"><input type="text" name="name_family" placeholder="Ваше имя фамилия"></div>
+			<input type="hidden" name="title" value="">
+			<div class="form__inner">
+				<div class="form__section">
+					<textarea class="textarea" name="" id="" placeholder="Ваше предложение"></textarea>
+				</div>
+				<div class="form__section">
+					<p class="form__text">Данные необходимы для обратной связи и не будут опубликованы:</p>
+					<label class="input-wrapper" for="">
+						<input class="input" type="text" placeholder="Ваше имя">
+					</label>
+					<label class="input-wrapper" for="">
+						<input class="input" type="email" placeholder="Ваш email">
+					</label>
+					<div class="button button_dark form__button">
+						<input class="submit-button" type="submit" value="Отправить">
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
 	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="fancy/jquery.fancybox.min.css">
 	<link rel="stylesheet" href="styles/slick-slider.min.css" />
 
 	<script src="scripts/jquery.js"></script>
 	<script src="scripts/main.js"></script>
+	<script src="fancy/jquery.fancybox.min.js"></script>
 	<script src="scripts/slick-slider.min.js"></script>
 	<script src="scripts/zingchart.min.js"></script>
 	<script src="scripts/chart-buro.js"></script>

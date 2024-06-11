@@ -2,6 +2,8 @@ $(document).ready(function() {
 
 	let clickEvent = document.ontouchstart !== null ? "click" : "touchstart";
 
+	$('.fancybox').fancybox();
+
 	$(".accordion__item-header").on("click", function() {
 		let item = $(this).closest(".accordion__item");
 		item.toggleClass("accordion__item_opened");
