@@ -72,13 +72,16 @@ function forPageSpeed(): bool
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/templates/includes/common.php';
 
-$title = "";
-$description = "";
-$keywords = "";
-$og_title = "";
-$og_description = "";
-$schema_description = "";
-$h1 = "";
+$title = "Система оценок и критерии рейтинга патентных бюро";
+$description = "Рейтинг патентных бюро: критерии оценки лучших компаний по регистрации товарных знаков. Прозрачная система и объективные данные.";
+$keywords = "оценка, критерий, рейтинг, патентный, бюро, поверенный, регистрация, товарный, знак";
+$og_title = "Критерии оценок рейтинга патентных бюро";
+$og_description = "Критерии и подходы для оценки участников рейтинга — лидеров среди патентных бюро России. Независимый анализ топа регистраторов и прозрачная оценка.";
+$schema_type = "WebSite";
+$schema_name = "Правила оценки рейтинга патентных бюро";
+$schema_description = "Топ патентных бюро России: критерии оценки компаний-лидеров по регистрации товарных знаков. Как проходит независимый анализ рейтинга патентных агентств.";
+$schema_url = "https://rating-irpa.com/sistema-ocenok";
+$h1 = "О системе оценок IRPA";
 
 foreach ([
 	'title', 'description', 'keywords', 'og_title', 'og_description', 'schema_description', 'h1'
