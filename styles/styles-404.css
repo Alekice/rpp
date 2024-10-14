@@ -1,0 +1,25 @@
+@import "./fonts.css";
+@import "./basics.css";
+@import "./components/logo.css";
+@import "./components/buttons.css";
+
+@import "./blocks/footer.css";
+
+
+.header__container {
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.header__title {
+    margin-bottom: 20px;
+}
+
+.header__image {
+    margin-bottom: 30px;
+}

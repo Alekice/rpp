@@ -10,17 +10,10 @@
 .logo__image {
 	width: 160px;
 	height: 50px;
-	background-color: var(--primary-color);
-	font-size: 20px;
-	line-height: 1;
-	font-weight: 700;
-	color: var(--light-color);
-	text-transform: uppercase;
-	display: flex;
-	-webkit-justify-content: center;
-	justify-content: center;
-	-webkit-align-items: center;
-	align-items: center;
+	background-image: url(../../images/logo.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	flex-shrink: 0;
 }
 
